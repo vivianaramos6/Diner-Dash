@@ -1,16 +1,14 @@
 #include "Button.h"
-Button::Button(){
-   this->xPos = ofGetWidth()/2;
-    this->yPos = ofGetHeight()/2;
-    this->width = 64;
-    this->height = 20; 
-}
-Button::Button(int xPos, int yPos, int width, int height, string buttonText){
+
+Button::Button(int xPos, int yPos, int width, int height, 
+string buttonText, ofColor txtColor, ofColor bgColor) {
     this->xPos = xPos;
     this->yPos = yPos;
     this->width = width;
     this->height = height;
     this->buttonText = buttonText;
+    this->txtColor = txtColor;
+    this->bgColor = bgColor;
 }
 
 void Button::reset(){
@@ -33,14 +31,19 @@ void Button::mousePressed(int x, int y){
     }
 }
 
-void Button::render(){
-    ofSetColor(0);
-    ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
-}
+void Button::render() {
+    // Border
+    // Changing the color of the border slightly
+    ofSetColor(bgColor - ofColor(40, 40, 40));
+    ofDrawRectRounded(xPos - 5, yPos - 5, width + 10, height + 10, 5);
 
-void Button::render(ofColor c){
-    ofSetColor(c);
-    ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
+    // Padding
+    ofSetColor(bgColor);
+    ofDrawRectRounded(xPos, yPos, width, height, 5);
+
+    // text
+    ofSetColor(txtColor);
+    ofDrawBitmapString(buttonText, xPos+width/2 - (buttonText.length() * 4), yPos+height/2 + 4);
 }
 
 bool Button::wasPressed(){

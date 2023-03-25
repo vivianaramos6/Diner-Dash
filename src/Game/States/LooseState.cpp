@@ -23,8 +23,8 @@ void LooseState::tick() {
 
 void LooseState::render() {
 	ofSetBackgroundColor(0, 0, 0);
-	playAgainBtn->render(ofColor::white);
-	goToMenuBtn->render(ofColor::white);
+	playAgainBtn->render();
+	goToMenuBtn->render();
 }
 
 void LooseState::keyPressed(int key) {

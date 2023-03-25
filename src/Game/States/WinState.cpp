@@ -23,8 +23,8 @@ void WinState::tick() {
 
 void WinState::render() {
 	ofSetBackgroundColor(59, 131, 247);
-	playAgainBtn->render(ofColor::black);
-	goToMenuBtn->render(ofColor::black);
+	playAgainBtn->render();
+	goToMenuBtn->render();
 
     ofSetColor(0);
     ofDrawBitmapString("YOU WON!", ofGetViewportWidth() / 2 - 44, ofGetViewportHeight() / 3);

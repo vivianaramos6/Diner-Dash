@@ -8,8 +8,15 @@ Client::~Client(){
 }
 void Client::render(){
     burger->render();
-    ofSetColor (255,255,255);
+
+    // Setting making the color of the client redder as they loose patience
+    int patienceToColor = 255 / 2000. * patience;
+    ofSetColor(255,patienceToColor,patienceToColor);
+
     sprite.draw(x, y, width, height);
+
+    ofSetColor(255);
+
     if(nextClient != nullptr){
         nextClient->render();
     }

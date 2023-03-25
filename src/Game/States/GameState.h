@@ -12,5 +12,6 @@ class GameState: public State{
 		void keyReleased(int key);
 	
 	private:
+		int clientsLeavingToLoose = 10;
 		Restaurant *restaurant;
 };

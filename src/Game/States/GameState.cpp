@@ -5,6 +5,12 @@ GameState::GameState() {
 }
 void GameState::tick() {
 	restaurant->tick();
+
+	// Checking if enought clients have left in order to trigger the loose state
+	if(restaurant->getClientsThatLeft() >= clientsLeavingToLoose) {
+		setFinished(true);
+		setNextState("Loose");
+	}
 }
 void GameState::render() {
 	restaurant->render();
@@ -21,6 +27,10 @@ void GameState::keyReleased(int key){
 }
 
 void GameState::reset(){
+	// Resetting restaurant
+	delete this->restaurant;
+	this->restaurant = new Restaurant();
+	
 	setFinished(false);
 	setNextState("");
 }

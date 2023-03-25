@@ -86,6 +86,7 @@ void Restaurant::tick() {
     player->tick();
     entityManager->tick();
 
+    setClientsThatLeft(entityManager->getClientsThatLeft());
 }
 
 

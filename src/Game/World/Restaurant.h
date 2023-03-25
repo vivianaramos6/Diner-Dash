@@ -15,6 +15,7 @@ class Restaurant {
         int ticks=0;
         std::vector<ofImage> people;
         int money =0;
+        int clientsThatLeft = 0;
 
     public:
         Restaurant();
@@ -35,4 +36,8 @@ class Restaurant {
         void tick();
         void render();
         void keyPressed(int key);
+
+        // Getters and setters
+        int getClientsThatLeft() { return clientsThatLeft; }
+        void setClientsThatLeft(int left) { clientsThatLeft = left; }
 };

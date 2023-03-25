@@ -13,5 +13,7 @@ class GameState: public State{
 	
 	private:
 		int clientsLeavingToLoose = 10;
+		int moneyGoal = 100;
+
 		Restaurant *restaurant;
 };

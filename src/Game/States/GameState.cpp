@@ -11,6 +11,12 @@ void GameState::tick() {
 		setFinished(true);
 		setNextState("Loose");
 	}
+
+	// Checking if the player has reached the money goal to win
+	if(restaurant->getMoney() >= moneyGoal) {
+		setFinished(true);
+		setNextState("Win");
+	}
 }
 void GameState::render() {
 	restaurant->render();

@@ -40,4 +40,5 @@ class Restaurant {
         // Getters and setters
         int getClientsThatLeft() { return clientsThatLeft; }
         void setClientsThatLeft(int left) { clientsThatLeft = left; }
+        int getMoney() { return money; }
 };

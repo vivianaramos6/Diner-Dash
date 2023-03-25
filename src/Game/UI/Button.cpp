@@ -38,6 +38,11 @@ void Button::render(){
     ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
 }
 
+void Button::render(ofColor c){
+    ofSetColor(c);
+    ofDrawBitmapString(buttonText, xPos+width/2, yPos+height/2);
+}
+
 bool Button::wasPressed(){
     return pressed;
 }

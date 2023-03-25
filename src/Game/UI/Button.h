@@ -1,3 +1,4 @@
+#pragma once
 #include "ofMain.h"
 
 class Button {
@@ -8,6 +9,7 @@ class Button {
         void mousePressed(int x, int y);
         void tick();
         void render();
+        void render(ofColor c);
         bool wasPressed();
         void reset();
 

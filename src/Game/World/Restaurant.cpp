@@ -12,7 +12,7 @@ Restaurant::Restaurant() {
     entityManager = new EntityManager();
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
-    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager);    
+    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money);    
     initItems();
     initCounters();
     initClients();

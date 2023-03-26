@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em) : Entity(x, y, width, height, sprite){
+Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p) : Entity(x, y, width, height, sprite){
 
     vector<ofImage> chefAnimframes;
     ofImage temp;
@@ -15,6 +15,7 @@ Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManage
     chefAnimframes.push_back(temp);
     this->chefAnim = new Animation(50, chefAnimframes);
     this->entityManager = em;
+    this->money_p = money_p;
     
 }
 void Player::tick(){
@@ -52,6 +53,9 @@ void Player::keyPressed(int key){
             Item* item = ac->getItem();
             if(item != nullptr){
                 burger->addIngredient(item);
+
+                // Deduct $1 when selecting ingredient
+                (*money_p)--;
             }
         }
     }

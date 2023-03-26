@@ -19,4 +19,10 @@ class Burger {
     void setY(int y) {
         this->y = y;
     }
+
+    unordered_map<string, int> getItemAmounts();
+    bool equals(Burger *burgerMade);
+
+    // Getters and setters
+    vector<Item *> getIngredients() { return ingredients; }
 };

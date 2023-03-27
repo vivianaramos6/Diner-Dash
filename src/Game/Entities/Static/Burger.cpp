@@ -3,6 +3,7 @@
 //
 
 #include "Burger.h"
+#include <unordered_map>
 
 Burger::Burger(int x, int y, int width, int height){
     this->x = x;
@@ -25,4 +26,41 @@ void Burger::render(){
 
 void Burger::clear(){
     ingredients.empty();
+}
+
+// This function returns a map of the items in a burger to their amount
+unordered_map<string, int> Burger::getItemAmounts() {
+    // Initializing map with default values 0
+    unordered_map<string, int> ingredientAmounts = {{"cheese",0}, {"tomato",0}, {"lettuce",0}, {"patty",0}, {"topBun",0}, {"bottomBun",0}};
+
+    for(Item *item : this->getIngredients()) {
+        string name = item->name;
+        ingredientAmounts[name] += 1;
+    }
+
+    return ingredientAmounts;
+}
+
+bool Burger::equals(Burger *burgerMade) {
+    // Checking if top and buttom buns are placed correctly and that they have the same number of ingredients
+    vector<Item *>burgerMadeItems = burgerMade->getIngredients();
+
+    if(
+        burgerMadeItems.size() != this->getIngredients().size() ||
+        burgerMadeItems[0]->name != "bottomBun" || 
+        burgerMadeItems[burgerMadeItems.size() - 1]->name != "topBun"
+    )
+        return false;
+
+    // Mapping ingredients to their amounts
+    unordered_map<string, int> targetIngredientAmounts = this->getItemAmounts();
+    unordered_map<string, int> paramIngredientAmounts = burgerMade->getItemAmounts();
+    
+    // Comparing to see if amounts are equal, returning false if at least one isnt
+    for(auto &x : targetIngredientAmounts) {
+        if(x.second != paramIngredientAmounts.at(x.first))
+            return false;
+    }
+
+    return true;
 }

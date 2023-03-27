@@ -18,7 +18,7 @@ Restaurant::Restaurant() {
    
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
-    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager);    
+    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money);    
     initItems();
     initCounters();
     initClients();
@@ -42,6 +42,10 @@ void Restaurant::initItems(){
     burger = new Item(burgerImg, "patty");
     botBread = new Item(botBreadImg, "bottomBun");
     topBread = new Item(topBreadImg, "topBun");
+
+    // Adding all itemOptions to a list (excluding bread)
+    Item* newItemOptions[4] = { cheese, lettuce, tomato, burger };
+    memcpy(itemOptions, newItemOptions, sizeof(itemOptions));
 }
 void Restaurant::initCounters(){
     int counterWidth = 96;
@@ -92,17 +96,25 @@ void Restaurant::tick() {
     player->tick();
     entityManager->tick();
 
+    setClientsThatLeft(entityManager->getClientsThatLeft());
 }
 
 
 void Restaurant::generateClient(){
     Burger* b = new Burger(72, 100, 50, 25);
     b->addIngredient(botBread);
-    b->addIngredient(burger);
-    b->addIngredient(cheese);
-    b->addIngredient(tomato);
-    b->addIngredient(lettuce);
+
+    // Deciding amount of ingredients
+    int ingredientAmt = ofRandom(3);
+
+    // Adding 4 random ingredients
+    for(int i = 0; i <= ingredientAmt; i++) {
+        int n = ofRandom(4);
+        b->addIngredient(itemOptions[n]);
+    }
+
     b->addIngredient(topBread);
+
     entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b));
 }
 void Restaurant::render() {

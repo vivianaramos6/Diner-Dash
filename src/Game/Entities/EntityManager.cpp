@@ -18,6 +18,9 @@ void EntityManager::removeLeavingClients(){
     
     while(tempClient != nullptr){
         if(tempClient->isLeaving){
+            // Checking if client left with a patience of 0 to increment clientsLeft
+            if(tempClient->getPatience() == 0) clientLeft();
+
             if(prevClient == nullptr){
                 firstClient = tempClient->nextClient;
                 delete tempClient;

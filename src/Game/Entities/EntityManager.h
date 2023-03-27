@@ -5,6 +5,9 @@
 
 class EntityManager {
 
+private:
+	int clientsThatLeft = 0;
+
 public:
 	Client* firstClient;
 	void tick();
@@ -14,4 +17,7 @@ public:
 	void removeLeavingClients();
 	std::vector<Entity*> entities;
 
+	// Getters and setters
+	int getClientsThatLeft() { return clientsThatLeft; }
+	void clientLeft() { clientsThatLeft++; }
 };

@@ -27,6 +27,11 @@ class Restaurant {
         Item* botBread;
         Item* topBread;
         ofImage floor;
+        ofImage jukebox;
+        ofImage chairsandtable;
+        ofImage BlueArcade;
+        ofImage RedArcade;
+        ofImage pottedplant;
         void initItems();
         void initCounters();
         void initClients();

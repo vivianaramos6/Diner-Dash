@@ -10,6 +10,12 @@ void Restaurant::setPlayer(Player *player) { this->player = player; }
 Restaurant::Restaurant() {
     floor.load("images/floor.jpg");
     entityManager = new EntityManager();
+    chairsandtable.load("images/ChairsTable.png");
+    jukebox.load("images/jukebox.png");
+    BlueArcade.load("images/blue_arcade.png");
+    RedArcade.load("images/red_arcade.png");
+    pottedplant.load("images/pottedplant.png");
+   
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
     this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager);    
@@ -100,12 +106,22 @@ void Restaurant::generateClient(){
     entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b));
 }
 void Restaurant::render() {
+   
     floor.draw(0,0, ofGetWidth(), ofGetHeight());
+    chairsandtable.draw(ofGetWidth()/2, 200, 190,190);
+    chairsandtable.draw(ofGetWidth()/4, 200, 190,190);
+    //jukebox.draw(ofGetWidth()-700,0.5,220,220);
+    BlueArcade.draw(ofGetWidth()-315,0,200,200);
+     RedArcade.draw(ofGetWidth()-430,5,170,195);
+     pottedplant.draw(ofGetWidth()-170,0,120,200);
+    
+    
     player->render();
     entityManager->render();
     ofSetColor(0, 100, 0);
     ofDrawBitmapString("Money: " + to_string(money), ofGetWidth()/2, 10);
     ofSetColor(256, 256, 256);
+     
 }
 void Restaurant::serveClient(){
     if(entityManager->firstClient!= nullptr){

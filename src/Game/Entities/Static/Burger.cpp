@@ -15,9 +15,22 @@ Burger::Burger(int x, int y, int width, int height){
 void Burger::addIngredient(Item *item) {
     ingredients.push_back(item);
 }
+//removes last ingredient added to burger
 void Burger::removelastingredient(){
     if(ingredients.size()<1) return;
     ingredients.pop_back();
+}
+
+int Burger::getprice(){
+    int total=0;
+     unordered_map<string, int> ingredientAmounts = getItemAmounts();
+     for(auto x: ingredientAmounts){
+        int price = (ingredientPrices.at(x.first))*(x.second);
+       total+=price;
+
+     }
+     return total;
+
 }
 
 void Burger::render(){

@@ -29,7 +29,6 @@ class Restaurant {
         Item* topBread;
         Item* itemOptions[4];
         ofImage floor;
-        ofImage jukebox;
         ofImage chairsandtable;
         ofImage BlueArcade;
         ofImage RedArcade;
@@ -42,6 +41,11 @@ class Restaurant {
         void tick();
         void render();
         void keyPressed(int key);
+        ofTrueTypeFont pressStart;
+        
+
+
+
 
         // Getters and setters
         int getClientsThatLeft() { return clientsThatLeft; }

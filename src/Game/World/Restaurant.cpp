@@ -8,6 +8,7 @@ Player *Restaurant::getPlayer() { return player; }
 void Restaurant::setPlayer(Player *player) { this->player = player; }
 
 Restaurant::Restaurant() {
+    pressStart.load("fonts/pressStart.ttf",10);
     floor.load("images/floor.jpg");
     entityManager = new EntityManager();
     //loading decoration
@@ -130,8 +131,13 @@ void Restaurant::render() {
     
     player->render();
     entityManager->render();
-    ofSetColor(0, 100, 0);
-    ofDrawBitmapString("Money: " + to_string(money), ofGetWidth()/2, 10);
+    ofSetColor(0, 0, 0); 
+	ofDrawRectangle(70, 5, 175, 30);
+
+    ofSetColor(144, 238, 144);
+
+    pressStart.drawString("Money: " + to_string(money),80,30);
+    
     ofSetColor(256, 256, 256);
      
 }

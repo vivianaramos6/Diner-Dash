@@ -22,8 +22,10 @@ class Burger {
     }
 
     unordered_map<string, int> getItemAmounts();
+    unordered_map<string, int> ingredientPrices= {{"cheese",3}, {"tomato",2}, {"lettuce",2}, {"patty",4}, {"topBun",1}, {"bottomBun",1}};
     bool equals(Burger *burgerMade);
 
     // Getters and setters
     vector<Item *> getIngredients() { return ingredients; }
+    int getprice();
 };

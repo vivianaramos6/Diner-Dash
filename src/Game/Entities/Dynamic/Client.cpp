@@ -35,5 +35,8 @@ void Client::tick(){
 
 int Client::serve(Burger* burger){
     isLeaving = true;
-    return 10;
+    //returns burger price
+    return burger->getprice();
+    
+    
 }

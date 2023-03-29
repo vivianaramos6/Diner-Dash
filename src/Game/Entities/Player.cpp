@@ -60,6 +60,7 @@ void Player::keyPressed(int key){
             }
         }
     }
+    //undoes last ingredient added to burger
     if(key=='u'){
         burger->removelastingredient();
 

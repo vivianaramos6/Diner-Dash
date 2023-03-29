@@ -15,11 +15,15 @@ Burger::Burger(int x, int y, int width, int height){
 void Burger::addIngredient(Item *item) {
     ingredients.push_back(item);
 }
+void Burger::removelastingredient(){
+    if(ingredients.size()<1) return;
+    ingredients.pop_back();
+}
 
 void Burger::render(){
     int counter = 1;
     for (Item* ingredient:ingredients){
-        ingredient->sprite.draw(x-5,y-(counter * 10)+55,width*0.70,height*0.70);
+      ingredient->sprite.draw(x-5,y-(counter * 10)+55,width*0.70,height*0.70);
         counter++;
     }
 }

@@ -53,13 +53,24 @@ void Player::keyPressed(int key){
             Item* item = ac->getItem();
             if(item != nullptr){
                 burger->addIngredient(item);
+                
 
                 // Deduct $1 when selecting ingredient
                 (*money_p)--;
             }
         }
     }
-}
+    if(key=='u'){
+        burger->removelastingredient();
+
+        }
+        
+
+    }
+
+
+
+
 BaseCounter* Player::getActiveCounter(){
     for(Entity* e:entityManager->entities){
         BaseCounter* c = dynamic_cast<BaseCounter*>(e);

@@ -2,7 +2,9 @@
 
 MenuState::MenuState() {
 	string text = "Start";
-	startButton = new Button(ofGetWidth()/2 - text.length()*8, ofGetHeight()/2 - text.length()*11, 64, 50, "Start");
+	startButton = new Button(ofGetWidth()/2 - text.length()*8, ofGetHeight()/2 - text.length()*11, 100, 100, "Start",255,95);
+	burgerbg.load("images/pixelburger.png");
+	
 }
 void MenuState::tick() {
 	startButton->tick();
@@ -13,8 +15,19 @@ void MenuState::tick() {
 	}
 }
 void MenuState::render() {
-	ofSetBackgroundColor(230, 230, 250);
+	ofSetColor(255);
+	burgerbg.draw(0,0,850,850);
+	
 	startButton->render();
+
+//game instructions
+    ofSetColor(77, 78, 79, 95); 
+	ofDrawRectRounded(10, 10, 300, 100, 10);
+
+	ofSetColor(255);
+	ofDrawBitmapString("Press 'e' to pickup ingredients",40,40);
+	
+	ofDrawBitmapString("Press 's' to serve clients",40,65);
 }
 
 void MenuState::keyPressed(int key){

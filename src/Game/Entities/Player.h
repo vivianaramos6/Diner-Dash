@@ -22,4 +22,5 @@ class Player: public Entity{
         void setFacing(string);
         BaseCounter* getActiveCounter();
         Burger* getBurger(){ return burger; }
+       
 };

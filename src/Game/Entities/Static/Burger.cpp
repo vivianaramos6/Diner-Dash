@@ -19,6 +19,9 @@ void Burger::addIngredient(Item *item) {
 void Burger::removelastingredient(){
     if(ingredients.size()<1) return;
     ingredients.pop_back();
+   
+    
+
 }
 
 int Burger::getprice(){

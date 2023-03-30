@@ -46,6 +46,8 @@ void Player::render(){
     burger->render();
 }
 
+
+
 void Player::keyPressed(int key){
     if(key == 'e'){
         BaseCounter* ac = getActiveCounter();

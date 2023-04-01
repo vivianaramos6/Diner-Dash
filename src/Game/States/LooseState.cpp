@@ -5,8 +5,8 @@ LooseState::LooseState() {
     int btnW = 150;
     int btnH = 40;
 
-    playAgainBtn = new Button(centerX + 200, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Play Again");
-    goToMenuBtn = new Button(centerX - 200, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Go to Menu");
+    playAgainBtn = new Button(centerX + 125, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Play Again", 10, ofColor(255), ofColor(0x15, 0x88, 255));
+    goToMenuBtn = new Button(centerX - 275, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Go to Menu", 10, ofColor(255), ofColor::orange);
     sadchef.load("images/sad_chef.png");
     gameover.load("images/gameover.webp");
 }

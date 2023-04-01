@@ -42,8 +42,8 @@ void Burger::render(){
     }
 }
 
-void Burger::clear(){
-    ingredients.empty();
+void Burger::clear() {
+    ingredients.clear();
 }
 
 // This function returns a map of the items in a burger to their amount

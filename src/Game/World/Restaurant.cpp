@@ -144,6 +144,7 @@ void Restaurant::render() {
 }
 void Restaurant::serveClient(){
     if(entityManager->firstClient!= nullptr){
+        // Serve method returns the amount of money the bruger costs. returns 0 if no burger was served
         money += entityManager->firstClient->serve(player->getBurger());
     }
 }

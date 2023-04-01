@@ -34,9 +34,18 @@ void Client::tick(){
 }
 
 int Client::serve(Burger* burger){
-    isLeaving = true;
-    //returns burger price
-    return burger->getprice();
-    
-    
+    // Client leaves and burger is disposed of when the burger served equals the client's
+    if(burger->equals(this->burger)) {
+        isLeaving = true;
+        burger->clear();
+        return this->burger->getprice();
+    }
+
+    // Checking if there is more clients and running serve on them
+    if(nextClient != nullptr)
+        return nextClient->serve(burger);
+
+    // adding $0 and disposing burger when no burger is served
+    burger->clear();
+    return 0;
 }

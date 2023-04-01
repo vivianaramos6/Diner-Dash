@@ -55,8 +55,9 @@ void Player::keyPressed(int key){
     }
     //undoes last ingredient added to burger
     if(key=='u'){
-        burger->removelastingredient();
-        }
+        // Tries to removw last ingredient, if there is an ingredient to remove, the $1 is returned
+        if(burger->removelastingredient()) (*money_p)++;
+    }
         //chef moves left
         if(key == OF_KEY_LEFT){
             facing="left";

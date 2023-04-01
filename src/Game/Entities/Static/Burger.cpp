@@ -15,13 +15,11 @@ Burger::Burger(int x, int y, int width, int height){
 void Burger::addIngredient(Item *item) {
     ingredients.push_back(item);
 }
-//removes last ingredient added to burger
-void Burger::removelastingredient(){
-    if(ingredients.size()<1) return;
+//removes last ingredient added to burger. Returns true if there was an ingrediant available to remove
+bool Burger::removelastingredient(){
+    if(ingredients.size()<1) return false;
     ingredients.pop_back();
-   
-    
-
+    return true;
 }
 
 int Burger::getprice(){

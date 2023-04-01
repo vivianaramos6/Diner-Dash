@@ -22,12 +22,16 @@ void MenuState::render() {
 
 //game instructions
     ofSetColor(77, 78, 79, 95); 
-	ofDrawRectRounded(10, 10, 300, 100, 10);
+	ofDrawRectRounded(10, 10, 300, 120, 10);
 
 	ofSetColor(255);
 	ofDrawBitmapString("Press 'e' to pickup ingredients",40,40);
 	
 	ofDrawBitmapString("Press 's' to serve clients",40,65);
+
+	ofDrawBitmapString("Press '->' to move right",40,90);
+	ofDrawBitmapString("Press '<-'to move left",40,110);
+
 }
 
 void MenuState::keyPressed(int key){

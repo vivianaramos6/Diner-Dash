@@ -24,8 +24,8 @@ void LooseState::tick() {
 
 void LooseState::render() {
 
-	ofSetBackgroundColor(0,0,0);
-    //gameover.draw(0,0,850,850);
+	ofSetBackgroundColor(256);
+    gameover.draw(0,0,850,850);
     sadchef.draw(ofGetWidth()/4-20, 200, 190,190);
 
 	playAgainBtn->render();

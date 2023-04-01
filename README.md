@@ -16,8 +16,9 @@ Please fill out the information below for each member of the team:
 
 # features added Phase 1:
 - two arcade machines (drawn by Viviana)
-- jukebox 
+- potted plant 
 - two tables with chairs (drawn by Viviana)
+- burger background
 
 ### [ Viviana Ramos : viviana.ramos6@upr.edu]
 

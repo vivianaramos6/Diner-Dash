@@ -1,15 +1,12 @@
 #include "Button.h"
+#include "GameFont.h"
 
 Button::Button(int xPos, int yPos, int width, int height, 
-string buttonText, ofColor txtColor, ofColor bgColor) {
-    this->xPos = xPos;
-    this->yPos = yPos;
-    this->width = width;
-    this->height = height;
-    this->buttonText = buttonText;
-    this->txtColor = txtColor;
-    this->bgColor = bgColor;
-}
+string buttonText, int fontSize, ofColor txtColor, ofColor bgColor)
+:
+xPos(xPos), yPos(yPos), width(width), height(height), 
+buttonText(buttonText), fontSize(fontSize), txtColor(txtColor), bgColor(bgColor) 
+{ gameFont = GameFont(fontSize); }
 
 void Button::reset(){
     pressedCounter = -1;
@@ -43,7 +40,7 @@ void Button::render() {
 
     // text
     ofSetColor(txtColor);
-    ofDrawBitmapString(buttonText, xPos+width/2 - (buttonText.length() * 4), yPos+height/2 + 4);
+    gameFont.draw(buttonText, xPos+width/2 - (buttonText.length() * fontSize * 0.65), yPos+height/2 + fontSize * 0.65);
 }
 
 bool Button::wasPressed(){

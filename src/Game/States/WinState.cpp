@@ -2,7 +2,7 @@
 
 WinState::WinState() {
     int centerX = ofGetViewportWidth() / 2;
-    int btnW = 100;
+    int btnW = 150;
     int btnH = 40;
 
     playAgainBtn = new Button(centerX + 200, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Play Again");

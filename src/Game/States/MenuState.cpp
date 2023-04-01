@@ -1,10 +1,9 @@
 #include "MenuState.h"
 
-MenuState::MenuState() {
-	string text = "Start";
-	startButton = new Button(ofGetWidth()/2 - text.length()*8, ofGetHeight()/2 - text.length()*11, 100, 100, "Start",255,95);
+MenuState::MenuState() : title(GameFont(titleSize)) {
+	string btnTxt = "Start";
+	startButton = new Button(ofGetWidth()/2 - btnTxt.length()*16, ofGetHeight()/1.5 - btnTxt.length()*11, 200, 100, "Start", 16, 255, ofColor::orange);
 	burgerbg.load("images/pixelburger.png");
-	
 }
 void MenuState::tick() {
 	startButton->tick();
@@ -19,6 +18,10 @@ void MenuState::render() {
 	burgerbg.draw(0,0,850,850);
 	
 	startButton->render();
+
+	// Game title
+	string titleStr = "DINER DASH";
+	title.draw(titleStr, ofGetViewportWidth() / 2 - titleStr.length() * titleSize * 0.65, ofGetViewportHeight() / 3);
 
 //game instructions
     ofSetColor(77, 78, 79, 95); 

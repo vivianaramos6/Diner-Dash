@@ -1,13 +1,13 @@
 #pragma once
 #include "ofMain.h"
 
-class gameFont {
+class GameFont {
     private:
         ofTrueTypeFont pressStart;
         
 
     public:
-        gameFont(int size = 10) {
+        GameFont(int size = 10) {
             pressStart.load("fonts/pressStart.ttf", size);
         }
 

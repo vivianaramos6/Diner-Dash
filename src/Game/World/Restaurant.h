@@ -7,6 +7,7 @@
 #include "EntityManager.h"
 #include "Player.h"
 #include "ofMain.h"
+#include "gameFont.h"
 
 class Restaurant {
     private:
@@ -41,7 +42,7 @@ class Restaurant {
         void tick();
         void render();
         void keyPressed(int key);
-        ofTrueTypeFont pressStart;
+        gameFont gameFont10px;
         
 
 

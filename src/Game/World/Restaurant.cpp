@@ -8,7 +8,6 @@ Player *Restaurant::getPlayer() { return player; }
 void Restaurant::setPlayer(Player *player) { this->player = player; }
 
 Restaurant::Restaurant() {
-    pressStart.load("fonts/pressStart.ttf",10);
     floor.load("images/floor.jpg");
     entityManager = new EntityManager();
     //loading decoration
@@ -133,7 +132,7 @@ void Restaurant::render() {
 
     ofSetColor(144, 238, 144);
 
-    pressStart.drawString("Money: " + to_string(money),80,30);
+    gameFont10px.draw("Money: " + to_string(money),80,30);
     
     ofSetColor(256, 256, 256);
      

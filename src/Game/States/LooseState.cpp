@@ -7,8 +7,9 @@ LooseState::LooseState() {
 
     playAgainBtn = new Button(centerX + 200, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Play Again");
     goToMenuBtn = new Button(centerX - 200, ofGetViewportHeight() / 2 + 100, btnW, btnH, "Go to Menu");
+    sadchef.load("images/sad_chef.png");
+    gameover.load("images/gameover.webp");
 }
-
 void LooseState::tick() {
     if(playAgainBtn->wasPressed()) {
         setNextState("Game");
@@ -22,7 +23,11 @@ void LooseState::tick() {
 }
 
 void LooseState::render() {
-	ofSetBackgroundColor(0, 0, 0);
+
+	ofSetBackgroundColor(0,0,0);
+    //gameover.draw(0,0,850,850);
+    sadchef.draw(ofGetWidth()/4-20, 200, 190,190);
+
 	playAgainBtn->render();
 	goToMenuBtn->render();
 }

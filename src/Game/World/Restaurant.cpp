@@ -128,9 +128,6 @@ void Restaurant::render() {
      RedArcade.draw(ofGetWidth()-430,5,170,195);
      pottedplant.draw(ofGetWidth()-530,0,120,200);
     
-    
-    player->render();
-    entityManager->render();
     ofSetColor(0, 0, 0); 
 	ofDrawRectangle(70, 5, 175, 30);
 
@@ -140,6 +137,10 @@ void Restaurant::render() {
     
     ofSetColor(256, 256, 256);
      
+    
+    player->render();
+    entityManager->render();
+    
 }
 void Restaurant::serveClient(){
     if(entityManager->firstClient!= nullptr){

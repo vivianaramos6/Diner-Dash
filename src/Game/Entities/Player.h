@@ -12,6 +12,7 @@ class Player: public Entity{
         Animation *chefAnim;
         Burger *burger;
         EntityManager* entityManager;
+    
     public:
         Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p);
         void tick();

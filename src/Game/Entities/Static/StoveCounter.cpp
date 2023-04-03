@@ -24,15 +24,28 @@ void StoveCounter::interact() {
 void StoveCounter::tick() {
     ticks++;
     // Increasing cooking progress every certian amount of ticks
-    if(isCooking && ticks % 2 == 0) {
+    if(isCooking && ticks % ticksToCook == 0)
         cookingProgress++;
-    }
 
     if(cookingProgress == 100) {
         setItem(cookedItem);
         isCooking = false;
         isCooked = true;
     }
+}
+
+void StoveCounter::render() {
+    Entity::render();
+
+    // Drawing progress bar while cooking
+    
+    // Background
+    ofSetColor(100);
+    ofDrawRectRounded(x, y + height - progressBarH * 2, width, progressBarH, 1);
+
+    // Progress
+    ofSetColor(isCooked? completeColor : progressingColor);
+    ofDrawRectRounded(x, y + height - progressBarH * 2, width / 100.0 * cookingProgress, progressBarH, 1);
 }
 
 void StoveCounter::reset() {

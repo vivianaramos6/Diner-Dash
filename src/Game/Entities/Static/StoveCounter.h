@@ -6,15 +6,19 @@ class StoveCounter: public BaseCounter {
         Item *rawItem;
         // cookingProgress = 100 when it is done
         int cookingProgress = 0;
-        int ticksToCook = 1;
+        int ticksToCook = 2;
         bool isCooking = false;
         // when isCooked == true, the item is set to cookedItem, otherwise it is set to rawItem
         bool isCooked = false;
+        int progressBarH = 10;
+        ofColor completeColor = ofColor(21, 136, 255);
+        ofColor progressingColor = ofColor(255);
 
     public:
         StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite);
         Item* getItem();
         void interact();
+        void render();
         void reset();
         void tick();
 };

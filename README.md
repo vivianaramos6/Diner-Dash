@@ -20,6 +20,6 @@ Please fill out the information below for each member of the team:
 - two tables with chairs (drawn by Viviana)
 - burger background
 
-### [ Viviana Ramos : viviana.ramos6@upr.edu]
+### Viviana Ramos : viviana.ramos6@upr.edu
 
-### [ STUDENT B NAME : STUDENT B EMAIL ]
+### Ojani Figueroa : ojani.figueroa@upr.edu

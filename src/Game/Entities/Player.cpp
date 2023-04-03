@@ -44,10 +44,14 @@ void Player::keyPressed(int key){
         BaseCounter* ac = getActiveCounter();
         if(ac != nullptr){
             Item* item = ac->getItem();
-            if(item != nullptr){
-                burger->addIngredient(item);
-                
 
+            // calling interact method on the counter if it returns null item pointer
+            if(item == nullptr) {
+                ac->interact();
+            }
+            // Adding the item to the bruger if the pointer was not null
+            else {
+                burger->addIngredient(item);
                 // Deduct $1 when selecting ingredient
                 (*money_p)--;
             }

@@ -26,10 +26,11 @@ Restaurant::Restaurant() {
 
 }
 void Restaurant::initItems(){
-    ofImage burgerSpriteSheet, cheeseImg, lettuceImg, tomatoImg, burgerImg, botBreadImg, topBreadImg, plateImg;
+    ofImage burgerSpriteSheet, cheeseImg, lettuceImg, tomatoImg, burgerImg, rawBurgerImg, botBreadImg, topBreadImg, plateImg;
     burgerSpriteSheet.load("images/burger.png");
     topBreadImg.cropFrom(burgerSpriteSheet, 25, 16, 112, 43); // top bun
     burgerImg.cropFrom(burgerSpriteSheet, 30, 134, 103, 48); // patty
+    rawBurgerImg.cropFrom(burgerSpriteSheet, 577, 11, 111, 57); // raw patty
     cheeseImg.cropFrom(burgerSpriteSheet, 169, 213, 102, 39); // cheese
     tomatoImg.cropFrom(burgerSpriteSheet, 169, 158, 110, 41); // tomato
     lettuceImg.cropFrom(burgerSpriteSheet, 161, 62, 117, 34); // lettuce
@@ -40,6 +41,7 @@ void Restaurant::initItems(){
     lettuce = new Item(lettuceImg, "lettuce");
     tomato = new Item(tomatoImg, "tomato");
     burger = new Item(burgerImg, "patty");
+    rawBurger = new Item(rawBurgerImg, "rawPatty");
     botBread = new Item(botBreadImg, "bottomBun");
     topBread = new Item(topBreadImg, "topBun");
 
@@ -61,7 +63,7 @@ void Restaurant::initCounters(){
     breadCounterImg.cropFrom(counterSheet,0,63,34,56);//buns
     entityManager->addEntity(new BaseCounter(0,yOffset-16, counterWidth, 117, nullptr, plateCounterImg));
     entityManager->addEntity( new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*2,yOffset, counterWidth, 102, burger, stoveCounterImg));
+    entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg));
     entityManager->addEntity(new BaseCounter(counterWidth*3, yOffset, counterWidth, 102, lettuce, lettuceCounterImg));
     entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg));
     entityManager->addEntity(new BaseCounter(counterWidth*5, yOffset -10, counterWidth, 113, tomato, tomatoCounterImg));

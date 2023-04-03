@@ -13,7 +13,8 @@ class BaseCounter: public Entity {
 
     public:
         BaseCounter(int x, int y, int width, int height, Item* item, ofImage sprite);
-        Item* getItem();
+        virtual Item* getItem();
+        void setItem(Item* item);
+        virtual void interact();
         void showItem();
-
 };

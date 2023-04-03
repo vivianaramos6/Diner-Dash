@@ -4,6 +4,7 @@
 #pragma once
 
 #include "BaseCounter.h"
+#include "StoveCounter.h"
 #include "EntityManager.h"
 #include "Player.h"
 #include "ofMain.h"
@@ -26,6 +27,7 @@ class Restaurant {
         Item* lettuce;
         Item* tomato;
         Item* burger;
+        Item* rawBurger;
         Item* botBread;
         Item* topBread;
         Item* itemOptions[4];

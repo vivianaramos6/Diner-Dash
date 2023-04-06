@@ -31,6 +31,7 @@ void LooseState::render() {
 	playAgainBtn->render();
 	goToMenuBtn->render();
 
+    // Showing stats
     Stats* stats_p = gameData->getLastStats();
     if(stats_p != nullptr) stats_p->draw();
 }

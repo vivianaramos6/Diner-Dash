@@ -29,6 +29,10 @@ void WinState::render() {
     ofSetColor(0);
     ofDrawBitmapString("YOU WON!", ofGetViewportWidth() / 2 - 44, ofGetViewportHeight() / 3);
     ofSetColor(255);
+
+    // Showing stats
+    Stats* stats_p = gameData->getLastStats();
+    if(stats_p != nullptr) stats_p->draw();
 }
 
 void WinState::keyPressed(int key) {

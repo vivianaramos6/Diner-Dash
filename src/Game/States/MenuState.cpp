@@ -19,10 +19,22 @@ MenuState::MenuState(GameData *gameData) : State(gameData), title(GameFont(title
 }
 void MenuState::tick() {
 	startButton->tick();
+	statsButton->tick();
+	achivementsButton->tick();
+
 	if(startButton->wasPressed()){
 		setNextState("Game");
 		setFinished(true);
+	}
 
+	if(statsButton->wasPressed()){
+		setNextState("Stats");
+		setFinished(true);
+	}
+
+	if(achivementsButton->wasPressed()){
+		// setNextState("Achivements");
+		// setFinished(true);
 	}
 }
 void MenuState::render() {
@@ -57,10 +69,14 @@ void MenuState::keyPressed(int key){
 
 void MenuState::mousePressed(int x, int y, int button){
 	startButton->mousePressed(x, y);
+	statsButton->mousePressed(x, y);
+	achivementsButton->mousePressed(x, y);
 }
 
 void MenuState::reset(){
 	setFinished(false);
 	setNextState("");
 	startButton->reset();
+	statsButton->reset();
+	achivementsButton->reset();
 }

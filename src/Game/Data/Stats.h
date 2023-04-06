@@ -1,12 +1,22 @@
 // Each instance of Stats represent the stats for only one game/round once finished
+#pragma once
+#include "ofMain.h"
+#include "GameFont.h"
+class Stats {
+    private:
+        // These two fonts are used in the draw method
+        GameFont gameFont10px;
+        GameFont gameFont14px;
 
-struct Stats {
-    bool won;
-    int money;
-    int ingredientsUsed;
-    int clientsThatLeft;
-    int elapsedTime;
-    int burgersServed;
-    int burgersWasted;
-    int undos;
+    public:
+        bool won;
+        int ingredientsUsed = 0;
+        int clientsThatLeft = 0;
+        int burgersServed = 0;
+        int burgersWasted = 0;
+        int elapsedTime = 0;
+        int money = 0;
+        int undos = 0;
+        void draw(); // Used in winstate and loosestate
+        Stats();
 };

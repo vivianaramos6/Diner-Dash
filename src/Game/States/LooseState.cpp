@@ -30,6 +30,9 @@ void LooseState::render() {
 
 	playAgainBtn->render();
 	goToMenuBtn->render();
+
+    Stats* stats_p = gameData->getLastStats();
+    if(stats_p != nullptr) stats_p->draw();
 }
 
 void LooseState::keyPressed(int key) {

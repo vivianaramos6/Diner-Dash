@@ -1,8 +1,6 @@
 #pragma once
 #include "State.h"
 #include "Button.h"
-
-
 class LooseState : public State {
     private:
 		Button *playAgainBtn;

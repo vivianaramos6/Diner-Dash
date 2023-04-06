@@ -23,6 +23,7 @@ class GameData {
         int getGamesPlayed() { return gamesPlayed; }
         int getGamesLost() { return gamesLost; }
         int getGamesWon() { return gamesWon; }
+        Stats* getLastStats();
 
     // Methods
         void addGameStats(Stats stats);

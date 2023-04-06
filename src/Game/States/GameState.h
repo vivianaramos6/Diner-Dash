@@ -12,7 +12,7 @@ class GameState: public State{
 		void keyReleased(int key);
 	
 	private:
-		int clientsLeavingToLoose = 2;
+		int clientsLeavingToLoose = 10;
 		int moneyGoal = 100;
 		Stats stats;
 

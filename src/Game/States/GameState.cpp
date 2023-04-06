@@ -1,6 +1,6 @@
 #include "GameState.h"
 
-GameState::GameState() {
+GameState::GameState(GameData *gameData) : State(gameData) {
     this->restaurant = new Restaurant();
 }
 void GameState::tick() {

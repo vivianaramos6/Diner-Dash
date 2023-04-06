@@ -9,7 +9,7 @@ class WinState : public State {
 		Button *goToMenuBtn;
 
     public: 
-        WinState();
+        WinState(GameData *gameData);
 		void tick();
 		void render();
 		void keyPressed(int key);

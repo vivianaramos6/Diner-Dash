@@ -1,6 +1,6 @@
 #include "WinState.h"
 
-WinState::WinState() {
+WinState::WinState(GameData *gameData) : State(gameData) {
     int centerX = ofGetViewportWidth() / 2;
     int btnW = 150;
     int btnH = 40;

@@ -1,6 +1,6 @@
 #include "MenuState.h"
 
-MenuState::MenuState() : title(GameFont(titleSize)) {
+MenuState::MenuState(GameData *gameData) : State(gameData), title(GameFont(titleSize)) {
 	string btnTxt = "Start";
 	startButton = new Button(ofGetWidth()/2 - btnTxt.length()*16, ofGetHeight()/1.5 - btnTxt.length()*11, 200, 100, "Start", 16, 255, ofColor::orange);
 	burgerbg.load("images/pixelburger.png");

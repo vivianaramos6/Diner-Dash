@@ -2,11 +2,14 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetWindowTitle("Java Game Box");
+	// Game data and achivements
+	gameData = new GameData();
+
 	//States
-	menuState = new MenuState();
-	gameState = new GameState();
-	winState = new WinState();
-	looseState = new LooseState();
+	menuState = new MenuState(gameData);
+	gameState = new GameState(gameData);
+	winState = new WinState(gameData);
+	looseState = new LooseState(gameData);
 	// Initial State
 	currentState = menuState;
 
@@ -14,7 +17,6 @@ void ofApp::setup(){
 	sound.load("music.wav");
 	sound.setLoop(true);
 	sound.play();
-
 }
 
 //--------------------------------------------------------------

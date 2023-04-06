@@ -12,7 +12,7 @@ private:
 	GameFont title;
 
 public:
-	MenuState();
+	MenuState(GameData *gameData);
 	void tick();
 	void render();
 	void keyPressed(int key);

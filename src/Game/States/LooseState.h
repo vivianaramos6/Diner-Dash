@@ -9,7 +9,7 @@ class LooseState : public State {
 		Button *goToMenuBtn;
 
     public: 
-        LooseState();
+        LooseState(GameData *gameData);
 		void tick();
 		void render();
 		void keyPressed(int key);

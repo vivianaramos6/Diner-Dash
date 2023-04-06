@@ -1,6 +1,6 @@
 #include "LooseState.h"
 
-LooseState::LooseState() {
+LooseState::LooseState(GameData *gameData) : State(gameData) {
     int centerX = ofGetViewportWidth() / 2;
     int btnW = 150;
     int btnH = 40;

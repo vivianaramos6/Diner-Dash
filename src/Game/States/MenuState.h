@@ -8,6 +8,8 @@ class MenuState : public State {
 private:
 	ofImage img1;
 	Button *startButton;
+	Button *statsButton;
+	Button *achivementsButton;
 	int titleSize = 38;
 	GameFont title;
 

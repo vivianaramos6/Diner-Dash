@@ -1,9 +1,21 @@
 #include "MenuState.h"
 
 MenuState::MenuState(GameData *gameData) : State(gameData), title(GameFont(titleSize)) {
-	string btnTxt = "Start";
-	startButton = new Button(ofGetWidth()/2 - btnTxt.length()*16, ofGetHeight()/1.5 - btnTxt.length()*11, 200, 100, "Start", 16, 255, ofColor::orange);
 	burgerbg.load("images/pixelburger.png");
+
+	// Start button
+	string startTxt = "Start";
+	startButton = new Button(ofGetWidth()/2 - 150, 450, 300, 100, startTxt, 16, 255, ofColor::orange);
+
+	// Stats button
+	string statsTxt = "Stats";
+	statsButton = new Button(ofGetWidth()/2 - 150, 575, 300, 80, statsTxt, 16, 255, ofColor(145));
+
+
+	// Achivements button
+	string achivementsTxt = "Achivements";
+	achivementsButton = new Button(ofGetWidth()/2 - 150, 675 , 300, 80, achivementsTxt, 16, 255, ofColor(145));
+
 }
 void MenuState::tick() {
 	startButton->tick();
@@ -18,6 +30,8 @@ void MenuState::render() {
 	burgerbg.draw(0,0,850,850);
 	
 	startButton->render();
+	statsButton->render();
+	achivementsButton->render();
 
 	// Game title
 	string titleStr = "DINER DASH";

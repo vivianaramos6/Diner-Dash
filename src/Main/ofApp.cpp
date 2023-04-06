@@ -28,6 +28,7 @@ void ofApp::update(){
 				currentState = menuState;
 			}else if(currentState->getNextState() == "Game"){
 				currentState = gameState;
+				gameState->startTimer();
 			}else if(currentState->getNextState() == "Loose"){
 				currentState = looseState;
 			}else if(currentState->getNextState() == "Win"){

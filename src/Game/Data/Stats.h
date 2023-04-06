@@ -8,15 +8,23 @@ class Stats {
         GameFont gameFont10px;
         GameFont gameFont14px;
 
+        int startTime_ms;
+        int endTime_ms;
+        int elapsedTime_ms;
+
     public:
         bool won;
         int ingredientsUsed = 0;
         int clientsThatLeft = 0;
         int burgersServed = 0;
         int burgersWasted = 0;
-        int elapsedTime = 0;
         int money = 0;
         int undos = 0;
         void draw(); // Used in winstate and loosestate
         Stats();
+        
+        // Getters and Setters
+        void endTime();
+        void startTime();
+        string getElapsedTime();
 };

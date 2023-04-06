@@ -28,6 +28,7 @@ void GameState::tick() {
 		stats.burgersServed = restaurant->getBurgersServed();
 		stats.burgersWasted = restaurant->getBurgersWasted();
 		stats.undos = restaurant->getUndos();
+		stats.endTime();
 
 		gameData->addGameStats(stats);
 	}
@@ -44,6 +45,10 @@ void GameState::mousePressed(int x, int y, int button){
 }
 
 void GameState::keyReleased(int key){
+}
+
+void GameState::startTimer() {
+	stats.startTime();
 }
 
 void GameState::reset(){

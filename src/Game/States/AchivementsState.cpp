@@ -16,6 +16,7 @@ void AchivementsState::tick() {
 	}
 }
 void AchivementsState::render() {
+	ofSetBackgroundColor(100);
 	header.render();
 }
 

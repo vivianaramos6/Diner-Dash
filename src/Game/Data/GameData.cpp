@@ -5,6 +5,8 @@ void GameData::addGameStats(Stats stats) {
 
     // Updating game data
     totalBurgersServed += stats.burgersServed;
+    timePlayed += stats.getElapsedTimeMillisecs();
+    totalMoney += stats.money;
     gamesPlayed++;
     if(stats.won) { gamesWon++; }
     else { gamesLost++; }

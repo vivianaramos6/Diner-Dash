@@ -26,5 +26,8 @@ class Stats {
         // Getters and Setters
         void endTime();
         void startTime();
-        string getElapsedTime();
+        string getElapsedTimeString();
+        int getElapsedTimeMillisecs() { return elapsedTime_ms; }
+
+        static string getTimePlayed(int milliseconds);
 };

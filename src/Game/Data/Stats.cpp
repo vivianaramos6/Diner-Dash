@@ -4,14 +4,18 @@ Stats::Stats() {
     gameFont14px = GameFont(14);
 }
 
-string Stats::getElapsedTime() {
-    int totalSeconds = round(elapsedTime_ms / 1000.0);
+string Stats::getTimePlayed(int milliseconds) {
+    int totalSeconds = round(milliseconds / 1000.0);
     int minutes = totalSeconds / 60;
     int seconds = totalSeconds % 60;
 
     return to_string(minutes) + 
     (minutes == 1? " minute" : " minutes") + // uses "minute" insted of "minutes" if minutes == 1 
     " and " + to_string(seconds) + " seconds";
+}
+
+string Stats::getElapsedTimeString() {
+    return getTimePlayed(elapsedTime_ms);
 }
 
 void Stats::startTime() {
@@ -32,5 +36,5 @@ void Stats::draw() {
     gameFont10px.draw("Burgers wasted: " + to_string(burgersWasted), 10, 695);
     gameFont10px.draw("Ingredients used: " + to_string(ingredientsUsed), 10, 720);
     gameFont10px.draw("Clients that left: " + to_string(clientsThatLeft), 10, 745);
-    gameFont10px.draw("Elapsed time: " + getElapsedTime(), 10, 770);
+    gameFont10px.draw("Elapsed time: " + getElapsedTimeString(), 10, 770);
 }

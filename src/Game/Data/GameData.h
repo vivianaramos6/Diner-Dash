@@ -12,6 +12,8 @@ class GameData {
         vector<Achivement*> achivements;
         int totalBurgersServed = 0;
         int gamesPlayed = 0;
+        int timePlayed = 0;
+        int totalMoney = 0;
         int gamesLost = 0;
         int gamesWon = 0;
 
@@ -21,6 +23,8 @@ class GameData {
         vector<Achivement*> getAchivements() { return achivements; }
         int getBurgersServed() { return totalBurgersServed; }
         int getGamesPlayed() { return gamesPlayed; }
+        int getTimePlayed() { return timePlayed; }
+        int getTotalMoney() { return totalMoney; }
         int getGamesLost() { return gamesLost; }
         int getGamesWon() { return gamesWon; }
         Stats* getLastStats();

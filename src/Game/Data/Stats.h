@@ -3,6 +3,7 @@
 struct Stats {
     bool won;
     int money;
+    int ingredientsUsed;
     int clientsThatLeft;
     int elapsedTime;
     int burgersServed;

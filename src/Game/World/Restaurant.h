@@ -16,8 +16,12 @@ class Restaurant {
         EntityManager* entityManager;
         int ticks=0;
         std::vector<ofImage> people;
-        int money =0;
         int clientsThatLeft = 0;
+        int ingredientsUsed = 0;
+        int burgersServed = 0;
+        int burgersWasted = 0;
+        int undos = 0;
+        int money = 0;
 
     public:
         Restaurant();
@@ -51,7 +55,12 @@ class Restaurant {
 
 
         // Getters and setters
-        int getClientsThatLeft() { return clientsThatLeft; }
         void setClientsThatLeft(int left) { clientsThatLeft = left; }
+
+        int getClientsThatLeft() { return clientsThatLeft; }
+        int getIngredientsUsed() { return ingredientsUsed; }
+        int getBurgersServed() { return burgersServed; }
+        int getBurgersWasted() { return burgersWasted; }
+        int getUndos() { return undos; }
         int getMoney() { return money; }
 };

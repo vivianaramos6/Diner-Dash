@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p) : Entity(x, y, width, height, sprite){
+Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p) : Entity(x, y, width, height, sprite){
 
     vector<ofImage> chefAnimframes;
     ofImage temp;
@@ -15,7 +15,9 @@ Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManage
     chefAnimframes.push_back(temp);
     this->chefAnim = new Animation(50, chefAnimframes);
     this->entityManager = em;
+    this->ingredientsUsed_p = ingredientsUsed_p;
     this->money_p = money_p;
+    this->undos_p = undos_p;
     
 }
 void Player::tick(){
@@ -52,7 +54,8 @@ void Player::keyPressed(int key){
             // Adding the item to the bruger if the pointer was not null
             else {
                 burger->addIngredient(item);
-                // Deduct $1 when selecting ingredient
+                // Deduct $1 when selecting ingredient and incrementeing ingredients used by 1
+                (*ingredientsUsed_p)++;
                 (*money_p)--;
             }
         }
@@ -60,7 +63,13 @@ void Player::keyPressed(int key){
     //undoes last ingredient added to burger
     if(key=='u'){
         // Tries to removw last ingredient, if there is an ingredient to remove, the $1 is returned
-        if(burger->removelastingredient()) (*money_p)++;
+        // # of undos is incremented by 1 and # of ingredients used is decremented by 1
+        if(burger->removelastingredient()) {
+            (*ingredientsUsed_p)--;
+            (*money_p)++;
+            (*undos_p)++;
+        }
+
     }
         //chef moves left
         if(key == OF_KEY_LEFT){

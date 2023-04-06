@@ -5,13 +5,13 @@
 #include "Button.h"
 #include "GameFont.h"
 
-class StatsState : public State {
+class AchivementsState : public State {
 private:
 	StateTitle header;
 	Button *menuButton;
 
 public:
-	StatsState(GameData *gameData);
+	AchivementsState(GameData *gameData);
 	void tick();
 	void render();
 	void keyPressed(int key);

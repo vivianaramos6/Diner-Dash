@@ -8,6 +8,7 @@ void ofApp::setup(){
 	//States
 	menuState = new MenuState(gameData);
 	statsState = new StatsState(gameData);
+	achivementsState = new AchivementsState(gameData);
 	gameState = new GameState(gameData);
 	winState = new WinState(gameData);
 	looseState = new LooseState(gameData);
@@ -29,6 +30,8 @@ void ofApp::update(){
 				currentState = menuState;
 			}else if(currentState->getNextState() == "Stats"){
 				currentState = statsState;
+			}else if(currentState->getNextState() == "Achivements"){
+				currentState = achivementsState;
 			}else if(currentState->getNextState() == "Game"){
 				currentState = gameState;
 				gameState->startTimer();

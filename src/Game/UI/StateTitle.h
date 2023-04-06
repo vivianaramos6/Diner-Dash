@@ -1,5 +1,5 @@
+#pragma once
 #include "Button.h"
-
 class StateTitle {
     private:
         GameFont title;

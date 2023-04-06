@@ -33,8 +33,8 @@ void MenuState::tick() {
 	}
 
 	if(achivementsButton->wasPressed()){
-		// setNextState("Achivements");
-		// setFinished(true);
+		setNextState("Achivements");
+		setFinished(true);
 	}
 }
 void MenuState::render() {

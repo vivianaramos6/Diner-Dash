@@ -20,7 +20,7 @@ class Button {
 
         Button(int x, int y, int w, int h, string s, int fontSize, ofColor txtColor, ofColor bgColor);
 
-        void mousePressed(int x, int y);
+        bool mousePressed(int x, int y);
         void tick();
         void render();
         bool wasPressed();

@@ -39,9 +39,10 @@ void WinState::keyPressed(int key) {
 	
 }
 
-void WinState::mousePressed(int x, int y, int button) {
-	playAgainBtn->mousePressed(x, y);
-	goToMenuBtn->mousePressed(x, y);
+bool WinState::mousePressed(int x, int y, int button) {
+	return
+    playAgainBtn->mousePressed(x, y) ||
+    goToMenuBtn->mousePressed(x, y);
 }
 
 void WinState::reset() {

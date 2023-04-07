@@ -40,8 +40,9 @@ void LooseState::keyPressed(int key) {
 	
 }
 
-void LooseState::mousePressed(int x, int y, int button) {
-	playAgainBtn->mousePressed(x, y);
+bool LooseState::mousePressed(int x, int y, int button) {
+	return
+    playAgainBtn->mousePressed(x, y) ||
 	goToMenuBtn->mousePressed(x, y);
 }
 

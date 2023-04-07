@@ -67,9 +67,10 @@ void MenuState::keyPressed(int key){
 	
 }
 
-void MenuState::mousePressed(int x, int y, int button){
-	startButton->mousePressed(x, y);
-	statsButton->mousePressed(x, y);
+bool MenuState::mousePressed(int x, int y, int button){
+	return
+	startButton->mousePressed(x, y) ||
+	statsButton->mousePressed(x, y) ||
 	achivementsButton->mousePressed(x, y);
 }
 

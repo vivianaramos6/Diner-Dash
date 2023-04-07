@@ -41,8 +41,8 @@ void AchivementsState::keyPressed(int key){
 	
 }
 
-void AchivementsState::mousePressed(int x, int y, int button){
-	menuButton->mousePressed(x, y);
+bool AchivementsState::mousePressed(int x, int y, int button){
+	return menuButton->mousePressed(x, y);
 }
 
 void AchivementsState::reset(){

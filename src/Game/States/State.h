@@ -12,7 +12,7 @@ class State {
 		virtual void tick() = 0;
 		virtual void render() = 0;
 		virtual void keyPressed(int key) = 0;
-		virtual void mousePressed(int x, int y, int button) = 0;
+		virtual bool mousePressed(int x, int y, int button) = 0;
 
 		virtual void keyReleased(int key){}
 		void mouseMoved(int x, int y){}

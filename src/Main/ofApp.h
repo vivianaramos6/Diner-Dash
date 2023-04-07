@@ -21,6 +21,7 @@ private:
 	LooseState *looseState;
 	
 	ofSoundPlayer sound;
+	ofSoundPlayer btnSound;
 
 	GameData *gameData;
 

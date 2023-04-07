@@ -30,6 +30,6 @@ private:
 		void tick();
 		void render();
 		void keyPressed(int key);
-		void mousePressed(int x, int y, int button);
+		bool mousePressed(int x, int y, int button);
 		void reset();
 };

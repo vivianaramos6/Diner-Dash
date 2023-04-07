@@ -19,6 +19,8 @@ void ofApp::setup(){
 	sound.load("music.wav");
 	sound.setLoop(true);
 	sound.play();
+
+	btnSound.load("sounds/button.mp3");
 }
 
 //--------------------------------------------------------------
@@ -79,8 +81,8 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-	if (currentState != nullptr)
-		currentState->mousePressed(x, y, button);
+	if (currentState == nullptr) return;
+	if(currentState->mousePressed(x, y, button)) btnSound.play();
 }
 
 //--------------------------------------------------------------

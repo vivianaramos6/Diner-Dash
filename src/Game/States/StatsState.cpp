@@ -119,9 +119,10 @@ void StatsState::keyPressed(int key){
 	
 }
 
-void StatsState::mousePressed(int x, int y, int button){
-	menuButton->mousePressed(x, y);
-	previousButton->mousePressed(x, y);
+bool StatsState::mousePressed(int x, int y, int button){
+	return
+	menuButton->mousePressed(x, y) ||
+	previousButton->mousePressed(x, y) ||
 	nextButton->mousePressed(x, y);
 }
 

@@ -21,11 +21,13 @@ void Button::tick(){
 
 }
 
-void Button::mousePressed(int x, int y){
+bool Button::mousePressed(int x, int y){
     if(xPos + width >= x && x >= xPos &&  yPos + height >= y && y >= yPos){
         pressed = true;
         pressedCounter = 10;
+        return true;
     }
+    return false;
 }
 
 void Button::render() {

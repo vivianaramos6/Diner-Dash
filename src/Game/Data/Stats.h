@@ -27,7 +27,8 @@ class Stats {
         void endTime();
         void startTime();
         string getElapsedTimeString();
+        string getElapsedTimeStringShortened();
         int getElapsedTimeMillisecs() { return elapsedTime_ms; }
 
-        static string getTimePlayed(int milliseconds);
+        static string getTimePlayed(int milliseconds, bool shorten = false);
 };

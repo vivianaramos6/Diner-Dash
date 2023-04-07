@@ -10,6 +10,8 @@ class StatsState : public State {
 private:
 	StateTitle header;
 	Button *menuButton;
+	Button *nextButton;
+	Button *previousButton;
 	GameFont gameFont10px;
 	GameFont gameFont14px = GameFont(14);
 
@@ -19,6 +21,7 @@ private:
 	int currentPage = 0;
 	int numberOfStats = 0;
 
+	void renderPageInstruction();
 	void renderAllTimeStats();
 	void renderStatsInPage();
 

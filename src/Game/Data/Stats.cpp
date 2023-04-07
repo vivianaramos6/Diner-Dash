@@ -4,10 +4,14 @@ Stats::Stats() {
     gameFont14px = GameFont(14);
 }
 
-string Stats::getTimePlayed(int milliseconds) {
+string Stats::getTimePlayed(int milliseconds, bool shorten) {
     int totalSeconds = round(milliseconds / 1000.0);
     int minutes = totalSeconds / 60;
     int seconds = totalSeconds % 60;
+
+    if(shorten) {
+        return to_string(minutes) + "m & " + to_string(seconds) + "s";
+    }
 
     return to_string(minutes) + 
     (minutes == 1? " minute" : " minutes") + // uses "minute" insted of "minutes" if minutes == 1 
@@ -16,6 +20,10 @@ string Stats::getTimePlayed(int milliseconds) {
 
 string Stats::getElapsedTimeString() {
     return getTimePlayed(elapsedTime_ms);
+}
+
+string Stats::getElapsedTimeStringShortened() {
+    return getTimePlayed(elapsedTime_ms, true);
 }
 
 void Stats::startTime() {

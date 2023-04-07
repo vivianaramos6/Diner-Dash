@@ -8,7 +8,10 @@
 
 class AchivementsState : public State {
 private:
+	ofImage checkmark = ofImage("images/achivements/cm.png");
 	vector<Achivement> achivements;
+	GameFont gameFont14px = GameFont(14);
+	GameFont gameFont10px;
 	StateTitle header;
 	Button *menuButton;
 

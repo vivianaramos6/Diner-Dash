@@ -13,10 +13,22 @@ AchivementsState::AchivementsState(GameData *gameData) : State(gameData), header
 	ofImage *acImg3 = new ofImage("images/achivements/ftw.png");
 	ofImage *acImg4 = new ofImage("images/achivements/asf.png");
 
-	achivements.push_back(Achivement("Beginner's Luck", acImg1, "Win your first game." ));
-	achivements.push_back(Achivement("No Room for Error", acImg2, "Win a game with 0 undos and 0 wasted burgers." ));
-	achivements.push_back(Achivement("Full-Time Worker", acImg3, "Play the game for 8 minutes" ));
-	achivements.push_back(Achivement("All Star Chef", acImg4, "Serve 30 burgers." ));
+	achivements.push_back(Achivement("Beginner's Luck", acImg1, "Win your first game.", 1, 
+	[](Achivement &achivement, Stats &stats){
+		if(stats.won) achivement.addToProgress(1);
+	}));
+	achivements.push_back(Achivement("No Room for Error", acImg2, "Win a game with no undos\nnor wasted burgers.", 1, 
+	[](Achivement &achivement, Stats &stats){
+		if(stats.won && stats.undos == 0 && stats.burgersWasted == 0) achivement.addToProgress(1);
+	}));
+	achivements.push_back(Achivement("Full-Time Worker", acImg3, "Play the game for 8 minutes.", 480000, 
+	[](Achivement &achivement, Stats &stats){
+		achivement.addToProgress(stats.getElapsedTimeMillisecs());
+	}, 60000));
+	achivements.push_back(Achivement("All-Star Chef", acImg4, "Serve 30 burgers.", 30, 
+	[](Achivement &achivement, Stats &stats){
+		achivement.addToProgress(stats.burgersServed);
+	}));
 }
 
 void AchivementsState::tick() {
@@ -30,9 +42,44 @@ void AchivementsState::render() {
 	ofSetBackgroundColor(100);
 	header.render();
 
+	// Iterating through all achivements and showing them
 	for(int i = 0; i < achivements.size(); i++) {
 		Achivement achivement = achivements[i];
-		achivement.getIcon()->draw(100, 100 * i + 200, 50, 50);
+
+		int width = 500;
+		int height = 125;
+
+		int xPos = ofGetViewportWidth() / 2 - width / 2;
+		int yPos = 150 * i + 150;
+
+		// Drawing box shadow
+		ofSetColor(15);
+		ofDrawRectRounded(xPos+5, yPos+8, width, height, 10);
+
+		// Drawing box
+		ofSetColor(ofColor::antiqueWhite);
+		ofDrawRectRounded(xPos, yPos, width, height, 10);
+
+		// Drawing icon
+		achivement.getIcon()->draw(xPos + 10, yPos + 10, 50, 55);
+
+		// Drawing achivement contents
+		ofSetColor(0);
+		gameFont14px.draw(achivement.getName(), xPos + 70, yPos + 35);
+		gameFont10px.draw(achivement.getDesc(), xPos + 70, yPos + 65);
+		
+		// Drawing progress
+		string progression = achivement.getProgression();
+		gameFont10px.draw(progression, xPos + width - (progression.size() * 17), yPos + height - 5);
+
+		// Drawing completion state
+		if(achivement.isComplete()) {
+			ofSetColor(255);
+			checkmark.draw(xPos + width - 35, yPos - 17, 50, 50);
+		}else {
+			ofSetColor(ofColor::darkRed);
+			gameFont10px.draw("Not yet completed", xPos + 70, yPos + height - 5);
+		}
 	}
 
 }

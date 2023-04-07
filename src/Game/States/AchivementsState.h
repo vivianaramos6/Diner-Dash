@@ -4,9 +4,11 @@
 #include "StateTitle.h"
 #include "Button.h"
 #include "GameFont.h"
+#include "Achivement.h"
 
 class AchivementsState : public State {
 private:
+	vector<Achivement> achivements;
 	StateTitle header;
 	Button *menuButton;
 

@@ -48,6 +48,7 @@ class Restaurant {
         void tick();
         void render();
         void keyPressed(int key);
+        void keyReleased(int key);
         GameFont gameFont10px;
         
 

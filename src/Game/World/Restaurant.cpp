@@ -160,3 +160,7 @@ void Restaurant::keyPressed(int key) {
         serveClient();
     }
 }
+
+void Restaurant::keyReleased(int key) {
+    player->keyReleased(key);
+}

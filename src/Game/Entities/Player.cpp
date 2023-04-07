@@ -22,6 +22,10 @@ Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManage
 }
 void Player::tick(){
     chefAnim->tick();
+
+    // Moving chef
+    if(movingLeft && x > 0) x -= speed;
+    if(movingRight && x + width<ofGetWidth()) x += speed;
 }
 
 
@@ -71,27 +75,25 @@ void Player::keyPressed(int key){
         }
 
     }
-        //chef moves left
-        if(key == OF_KEY_LEFT){
-            facing="left";
-            if(x>0){
-        x-=speed+20;}}
-        //chef moves right
-        else if(key == OF_KEY_RIGHT){
-        facing = "right";
-        if(x+width<ofGetWidth()){
-        x+=speed+20;
-    }}
-        
-    
-
-    
-        
-
+    //chef moves left
+    if(key == OF_KEY_LEFT){
+        facing="left";
+        movingLeft = true;
     }
 
+    //chef moves right
+    else if(key == OF_KEY_RIGHT){
+        facing = "right";
+        movingRight = true;
+    }     
+}
 
-
+void Player::keyReleased(int key) {
+    //chef stop moving left
+    if(key == OF_KEY_LEFT) movingLeft = false;
+    //chef stop moving right
+    else if(key == OF_KEY_RIGHT) movingRight = false;     
+}
 
 BaseCounter* Player::getActiveCounter(){
     for(Entity* e:entityManager->entities){
@@ -103,8 +105,6 @@ BaseCounter* Player::getActiveCounter(){
     return nullptr;
 }
 
-void Player::keyReleased(int key) {
-}
 void Player::mousePressed(int x, int y, int button) {
 }
 

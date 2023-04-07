@@ -10,6 +10,8 @@ class Player: public Entity{
         int *ingredientsUsed_p;
         int *money_p;
         int *undos_p;
+        bool movingLeft = false;
+        bool movingRight = false;
         string facing = "right";
         Animation *chefAnim;
         Burger *burger;

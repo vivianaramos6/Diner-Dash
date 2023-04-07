@@ -92,7 +92,7 @@ void Restaurant::initClients(){
 }
 void Restaurant::tick() {
     ticks++;
-    if(ticks % 400 == 0){
+    if(ticks % 300 == 0){
         generateClient();
     }
     player->tick();

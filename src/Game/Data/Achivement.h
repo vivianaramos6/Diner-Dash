@@ -8,7 +8,7 @@ class Achivement {
 
         // The parameter "callback" contains the logic that determines the progress of the achivement.
         // It is called whenever a game is finished
-        function<void(Achivement &achivement, Stats &stats)> callback;
+        function<void(Achivement *achivement, Stats &stats)> callback;
 
         // displayProgressDivisor is divided to both the goal and the progress when calling getProgression()
         // An example of when this is useful is when the progress is collected in millisecond but you want
@@ -26,7 +26,7 @@ class Achivement {
     public:
         Achivement(
             string name, ofImage *icon, string desc, int goal, 
-            function<void(Achivement &achivement, Stats &stats)> callback,
+            function<void(Achivement *achivement, Stats &stats)> callback,
             int displayProgressDivisor = 1
         ) 
         : callback(callback), displayProgressDivisor(displayProgressDivisor), name(name), icon(icon), desc(desc), goal(goal) {}
@@ -49,4 +49,7 @@ class Achivement {
         bool isComplete() { return completed; }
         int getProgress() { return progress; }
         int getGoal() { return goal; }
+
+        // Methods
+        void update(Stats &stats) { callback(this, stats); }
 };

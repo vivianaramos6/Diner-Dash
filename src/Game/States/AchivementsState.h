@@ -17,6 +17,7 @@ private:
 
 public:
 	AchivementsState(GameData *gameData);
+	vector<Achivement>* getAchivementsPointer() { return &achivements; }
 	void tick();
 	void render();
 	void keyPressed(int key);

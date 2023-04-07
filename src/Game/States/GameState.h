@@ -3,7 +3,7 @@
 
 class GameState: public State{
     public: 
-        GameState(GameData *gameData);
+        GameState(GameData *gameData, vector<Achivement> *achivements_p);
 		void reset();
 		void tick();
 		void render();
@@ -13,6 +13,7 @@ class GameState: public State{
 		void startTimer();
 	
 	private:
+		vector<Achivement> *achivements_p;
 		int clientsLeavingToLoose = 10;
 		int moneyGoal = 100;
 		Stats stats;

@@ -1,6 +1,7 @@
 #include "GameState.h"
 
-GameState::GameState(GameData *gameData) : State(gameData) {
+GameState::GameState(GameData *gameData, vector<Achivement> *achivements_p) 
+: State(gameData), achivements_p(achivements_p) {
     this->restaurant = new Restaurant();
 }
 void GameState::tick() {
@@ -31,6 +32,12 @@ void GameState::tick() {
 		stats.endTime();
 
 		gameData->addGameStats(stats);
+
+		// Iterating through all the achivements and providing them with the latest stats
+		// in order to update their progression
+		for(Achivement &achivement : *achivements_p) {
+			achivement.update(stats);
+		}
 	}
 }
 void GameState::render() {

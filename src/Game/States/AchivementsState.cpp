@@ -1,33 +1,33 @@
 #include "AchivementsState.h"
 
 AchivementsState::AchivementsState(GameData *gameData) : State(gameData), header("Achivements") {
-	// Menu button
-	string menuTxt = "Menu";
-	menuButton = new Button(15, 15, 100, 50, menuTxt, 12, 255, ofColor::grey);
+	menuButton = new Button(15, 15, 100, 50, "Menu", 12, 255, ofColor::grey);
 	
 	header.setButton(menuButton);
 
-	// Generating achivements
+	// Loading the icons for all the achivements
 	ofImage *acImg1 = new ofImage("images/achivements/bl.png");
 	ofImage *acImg2 = new ofImage("images/achivements/nrfe.png");
 	ofImage *acImg3 = new ofImage("images/achivements/ftw.png");
 	ofImage *acImg4 = new ofImage("images/achivements/asf.png");
 
+	// Generating all achivements, including a lambda function specifying
+	// the logic to be used to track their progression based on the stats provided
 	achivements.push_back(Achivement("Beginner's Luck", acImg1, "Win your first game.", 1, 
-	[](Achivement &achivement, Stats &stats){
-		if(stats.won) achivement.addToProgress(1);
+	[](Achivement *achivement, Stats &stats){
+		if(stats.won) achivement->addToProgress(1);
 	}));
 	achivements.push_back(Achivement("No Room for Error", acImg2, "Win a game with no undos\nnor wasted burgers.", 1, 
-	[](Achivement &achivement, Stats &stats){
-		if(stats.won && stats.undos == 0 && stats.burgersWasted == 0) achivement.addToProgress(1);
+	[](Achivement *achivement, Stats &stats){
+		if(stats.won && stats.undos == 0 && stats.burgersWasted == 0) achivement->addToProgress(1);
 	}));
 	achivements.push_back(Achivement("Full-Time Worker", acImg3, "Play the game for 8 minutes.", 480000, 
-	[](Achivement &achivement, Stats &stats){
-		achivement.addToProgress(stats.getElapsedTimeMillisecs());
+	[](Achivement *achivement, Stats &stats){
+		achivement->addToProgress(stats.getElapsedTimeMillisecs());
 	}, 60000));
 	achivements.push_back(Achivement("All-Star Chef", acImg4, "Serve 30 burgers.", 30, 
-	[](Achivement &achivement, Stats &stats){
-		achivement.addToProgress(stats.burgersServed);
+	[](Achivement *achivement, Stats &stats){
+		achivement->addToProgress(stats.burgersServed);
 	}));
 }
 

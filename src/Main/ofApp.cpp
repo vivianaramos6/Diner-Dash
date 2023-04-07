@@ -9,7 +9,7 @@ void ofApp::setup(){
 	menuState = new MenuState(gameData);
 	statsState = new StatsState(gameData);
 	achivementsState = new AchivementsState(gameData);
-	gameState = new GameState(gameData);
+	gameState = new GameState(gameData, achivementsState->getAchivementsPointer());
 	winState = new WinState(gameData);
 	looseState = new LooseState(gameData);
 	// Initial State

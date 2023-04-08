@@ -23,6 +23,11 @@ class Restaurant {
         int undos = 0;
         int money = 0;
 
+        ofSoundPlayer stoveOnSound;
+        ofSoundPlayer pickIngredientSound;
+        ofSoundPlayer serveClientSound;
+        ofSoundPlayer clientLeftSound;
+
     public:
         Restaurant();
         Player* getPlayer();

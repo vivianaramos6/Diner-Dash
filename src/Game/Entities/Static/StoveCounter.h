@@ -15,9 +15,11 @@ class StoveCounter: public BaseCounter {
         ofColor progressingColor = ofColor(255);
         ofImage activeSprite;
         ofImage sprite;
+        ofSoundPlayer *interactSound;
 
     public:
-        StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite);
+        StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite, ofSoundPlayer *sound, ofSoundPlayer *interactSound);
+        void playInteractSound();
         Item* getItem();
         void interact();
         void render();

@@ -1,11 +1,12 @@
 #include "Client.h"
 
-Client::Client(int x, int y, int width, int height, ofImage sprite, Burger* burger): Entity(x, y, width, height, sprite){
-    this->burger = burger;
-}
+Client::Client(int x, int y, int width, int height, ofImage sprite, Burger* burger, ofSoundPlayer *leavingSound) 
+: Entity(x, y, width, height, sprite), burger(burger), leavingSound(leavingSound) { }
+
 Client::~Client(){
     delete burger;
 }
+
 void Client::render(){
     burger->render();
 
@@ -26,6 +27,7 @@ void Client::tick(){
     patience--;
     burger->setY(y);
     if(patience == 0){
+        if(leavingSound != nullptr) leavingSound->play();
         isLeaving = true;
     }
     if(nextClient != nullptr){

@@ -10,12 +10,14 @@
 class BaseCounter: public Entity {
     private:
         Item *item;
+        ofSoundPlayer *sound;
 
     public:
-        BaseCounter(int x, int y, int width, int height, Item* item, ofImage sprite);
+        BaseCounter(int x, int y, int width, int height, Item* item, ofImage sprite, ofSoundPlayer *sound = nullptr);
         virtual Item* getItem();
         void setItem(Item* item);
         virtual void interact();
         void showItem();
+        void playSound();
         void setSprite(ofImage sprite);
 };

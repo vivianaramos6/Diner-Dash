@@ -1,8 +1,8 @@
 #include "StoveCounter.h"
 
-StoveCounter::StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite) 
-: BaseCounter(x, y, width, height, rawItem, sprite), 
-cookedItem(cookedItem), rawItem(rawItem), sprite(sprite), activeSprite(activeSprite) {}
+StoveCounter::StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite, ofSoundPlayer *sound, ofSoundPlayer *interactSound) 
+: BaseCounter(x, y, width, height, rawItem, sprite, sound), 
+cookedItem(cookedItem), rawItem(rawItem), sprite(sprite), activeSprite(activeSprite), interactSound(interactSound) {}
 
 Item* StoveCounter::getItem() {
     // When isCooked == false, it returns a nullptr, causing the player to call the interact method
@@ -10,13 +10,20 @@ Item* StoveCounter::getItem() {
 
     // When finished cooking, it returns the item and resets the counter
     reset();
+    playSound();
     return cookedItem;
 }
 
 // Called when there is no cooked burger and the player clicks e
 void StoveCounter::interact() {
+    if(isCooking) return;
     isCooking = true;
     setSprite(activeSprite);
+    playInteractSound();
+}
+
+void StoveCounter::playInteractSound() {
+    if(interactSound != nullptr) interactSound->play();
 }
 
 void StoveCounter::tick() {

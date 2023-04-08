@@ -15,6 +15,12 @@ Restaurant::Restaurant() {
     BlueArcade.load("images/blue_arcade.png");
     RedArcade.load("images/red_arcade.png");
     pottedplant.load("images/pottedplant.png");
+
+    // Loading sounds
+    stoveOnSound.load("sounds/stove-on.mp3");
+    pickIngredientSound.load("sounds/pick-ingredient.mp3");
+    serveClientSound.load("sounds/serve-client.mp3");
+    clientLeftSound.load("sounds/client-left.mp3");
    
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
@@ -48,6 +54,8 @@ void Restaurant::initItems(){
     // Adding all itemOptions to a list (excluding bread)
     Item* newItemOptions[4] = { cheese, lettuce, tomato, burger };
     memcpy(itemOptions, newItemOptions, sizeof(itemOptions));
+
+    // Sounds
 }
 void Restaurant::initCounters(){
     int counterWidth = 96;
@@ -62,14 +70,14 @@ void Restaurant::initCounters(){
     cheeseCounterImg.cropFrom(counterSheet,64,73,32,46);//cheese
     plateCounterImg.cropFrom(counterSheet,0,133,32,50);//plates
     breadCounterImg.cropFrom(counterSheet,0,63,34,56);//buns
-    entityManager->addEntity(new BaseCounter(0,yOffset-16, counterWidth, 117, nullptr, plateCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg));
-    entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg, stoveCounterOnImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*3, yOffset, counterWidth, 102, lettuce, lettuceCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*5, yOffset -10, counterWidth, 113, tomato, tomatoCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*6, yOffset-32, counterWidth, 133, botBread, breadCounterImg));
-    entityManager->addEntity(new BaseCounter(counterWidth*7, yOffset-32, counterWidth, 133, topBread, breadCounterImg));
+    entityManager->addEntity(new BaseCounter(0,yOffset-16, counterWidth, 117, nullptr, plateCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg, stoveCounterOnImg, &pickIngredientSound, &stoveOnSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*3, yOffset, counterWidth, 102, lettuce, lettuceCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*5, yOffset -10, counterWidth, 113, tomato, tomatoCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*6, yOffset-32, counterWidth, 133, botBread, breadCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*7, yOffset-32, counterWidth, 133, topBread, breadCounterImg, &pickIngredientSound));
 
 }
 void Restaurant::initClients(){
@@ -118,7 +126,7 @@ void Restaurant::generateClient(){
 
     b->addIngredient(topBread);
 
-    entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b));
+    entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b, &clientLeftSound));
 }
 void Restaurant::render() {
    
@@ -151,7 +159,10 @@ void Restaurant::serveClient(){
         money += moneyFromBurger;
 
         // When money > 0, it means that the burger was served. otherwise it was thrown away
-        if(moneyFromBurger > 0)  burgersServed++;
+        if(moneyFromBurger > 0) {
+            burgersServed++;
+            serveClientSound.play();
+        }
         else burgersWasted++;
     }
 }

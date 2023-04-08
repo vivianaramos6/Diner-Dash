@@ -15,6 +15,8 @@ class GameState: public State{
 	private:
 		vector<Achivement> *achivements_p;
 		int clientsLeavingToLoose = 10;
+		ofSoundPlayer gameOverSound;
+		ofSoundPlayer gameWonSound;
 		int moneyGoal = 100;
 		Stats stats;
 

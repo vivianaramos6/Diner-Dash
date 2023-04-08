@@ -3,6 +3,9 @@
 GameState::GameState(GameData *gameData, vector<Achivement> *achivements_p) 
 : State(gameData), achivements_p(achivements_p) {
     this->restaurant = new Restaurant();
+
+	gameOverSound.load("sounds/game-over.mp3");
+	gameWonSound.load("sounds/game-won.wav");
 }
 void GameState::tick() {
 	restaurant->tick();
@@ -11,6 +14,7 @@ void GameState::tick() {
 	if(restaurant->getClientsThatLeft() >= clientsLeavingToLoose) {
 		stats.won = false;
 		setFinished(true);
+		gameOverSound.play();
 		setNextState("Loose");
 	}
 
@@ -18,6 +22,7 @@ void GameState::tick() {
 	if(restaurant->getMoney() >= moneyGoal) {
 		stats.won = true;
 		setFinished(true);
+		gameWonSound.play();
 		setNextState("Win");
 	}
 

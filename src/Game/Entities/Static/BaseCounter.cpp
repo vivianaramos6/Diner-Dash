@@ -4,12 +4,16 @@
 
 #include "BaseCounter.h"
 
-BaseCounter::BaseCounter(int x, int y, int width, int height,Item* item, ofImage sprite) : Entity(x, y, width, height, sprite){
-    this->item = item;
-}
+BaseCounter::BaseCounter(int x, int y, int width, int height,Item* item, ofImage sprite, ofSoundPlayer *sound)
+ : Entity(x, y, width, height, sprite), item(item), sound(sound) { }
 
 Item* BaseCounter::getItem(){
+    playSound();
     return item;
+}
+
+void BaseCounter::playSound() {
+    if(sound != nullptr) sound->play();
 }
 
 void BaseCounter::interact() { }

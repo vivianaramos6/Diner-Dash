@@ -47,7 +47,22 @@ void MenuState::render() {
 
 	// Game title
 	string titleStr = "DINER DASH";
+	string titleStrBottom = "ARCADE";
+
 	title.draw(titleStr, ofGetViewportWidth() / 2 - titleStr.length() * titleSize * 0.65, ofGetViewportHeight() / 3);
+
+	// "ARCADE" shadow
+	ofSetColor(18, 25, 89);
+
+	// drawing the shadow multiple times slightly below each other to mimic 3d effect
+	for(int i = 0; i < 10; i++) {
+		title.draw(titleStrBottom, ofGetViewportWidth() / 2 - titleStrBottom.length() * titleSize * 0.65, ofGetViewportHeight() / 3 + 65 + i);
+	}
+
+	// "ARCADE"
+	ofSetColor(255, 0, 0);
+	title.draw(titleStrBottom, ofGetViewportWidth() / 2 - titleStrBottom.length() * titleSize * 0.65, ofGetViewportHeight() / 3 + 65);
+
 
 //game instructions
     ofSetColor(77, 78, 79, 95); 

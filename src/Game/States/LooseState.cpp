@@ -26,7 +26,7 @@ void LooseState::render() {
 
 	ofSetBackgroundColor(256);
     gameover.draw(235,50,350,350);
-    sadchef.draw(ofGetWidth()/4-20, 200, 190,190);
+    sadchef.draw(50, 200, 190,190);
 
 	playAgainBtn->render();
 	goToMenuBtn->render();

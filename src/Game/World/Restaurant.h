@@ -45,6 +45,7 @@ class Restaurant {
         ofImage BlueArcade;
         ofImage RedArcade;
         ofImage pottedplant;
+        ofImage moneysign;
         void initItems();
         void initCounters();
         void initClients();

@@ -16,7 +16,6 @@ class Restaurant {
         EntityManager* entityManager;
         int ticks=0;
         std::vector<ofImage> people;
-        int clientsThatLeft = 0;
         int ingredientsUsed = 0;
         int burgersServed = 0;
         int burgersWasted = 0;
@@ -27,6 +26,7 @@ class Restaurant {
         ofSoundPlayer pickIngredientSound;
         ofSoundPlayer serveClientSound;
         ofSoundPlayer clientLeftSound;
+        GameFont gameFont10px;
 
     public:
         Restaurant();
@@ -55,16 +55,14 @@ class Restaurant {
         void render();
         void keyPressed(int key);
         void keyReleased(int key);
-        GameFont gameFont10px;
+        void reset();
         
 
 
 
 
         // Getters and setters
-        void setClientsThatLeft(int left) { clientsThatLeft = left; }
-
-        int getClientsThatLeft() { return clientsThatLeft; }
+        int getClientsThatLeft() { return entityManager->getClientsThatLeft(); }
         int getIngredientsUsed() { return ingredientsUsed; }
         int getBurgersServed() { return burgersServed; }
         int getBurgersWasted() { return burgersWasted; }

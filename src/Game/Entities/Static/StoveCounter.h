@@ -1,3 +1,4 @@
+#pragma once
 #include "BaseCounter.h"
 
 class StoveCounter: public BaseCounter {

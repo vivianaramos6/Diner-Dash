@@ -67,8 +67,7 @@ void GameState::startTimer() {
 
 void GameState::reset(){
 	// Resetting restaurant
-	delete this->restaurant;
-	this->restaurant = new Restaurant();
+	this->restaurant->reset();
 	
 	setFinished(false);
 	setNextState("");

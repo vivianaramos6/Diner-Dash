@@ -10,14 +10,15 @@ void EntityManager::tick(){
     removeLeavingClients();
 }
 
-void EntityManager::removeLeavingClients(){
-
+void EntityManager::removeClients(bool onlyLeavingClients) {
     // Remove all clients that are leaving
     Client* tempClient = firstClient;
     Client* prevClient = nullptr;
     
     while(tempClient != nullptr){
-        if(tempClient->isLeaving){
+        // will remove client if it is either leaving or if onlyLeavingClients is false
+        // this means that when onlyLeavingClients is false, all clients will be removed
+        if(tempClient->isLeaving || !onlyLeavingClients){
             // Checking if client left with a patience of 0 to increment clientsLeft
             if(tempClient->getPatience() == 0) clientLeft();
 
@@ -36,6 +37,27 @@ void EntityManager::removeLeavingClients(){
         }
     }
 }
+
+void EntityManager::removeLeavingClients(){
+    // the true parameter makes it so that it only removes the clients that are leaving
+    removeClients(true);
+}
+
+void EntityManager::resetClients(){
+    removeClients();
+    clientsThatLeft = 0;
+}
+
+void EntityManager::resetStoves() {
+    // Iterating through all entities
+    for(Entity *entity : entities) {
+
+        // Casting entity into stove counter to checkk if it is a stove
+        StoveCounter *stove = dynamic_cast<StoveCounter*>(entity);
+        if(stove != nullptr) stove->reset();
+    }
+}
+
 void EntityManager::render(){
     for(unsigned int i=0; i<entities.size(); i++){
         entities[i]->render();

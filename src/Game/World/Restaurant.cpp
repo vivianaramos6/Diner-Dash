@@ -108,8 +108,6 @@ void Restaurant::tick() {
     }
     player->tick();
     entityManager->tick();
-
-    setClientsThatLeft(entityManager->getClientsThatLeft());
 }
 
 
@@ -180,4 +178,17 @@ void Restaurant::keyPressed(int key) {
 
 void Restaurant::keyReleased(int key) {
     player->keyReleased(key);
+}
+
+void Restaurant::reset() {
+    ingredientsUsed = 0;
+    burgersServed = 0;
+    burgersWasted = 0;
+    ticks = 0;
+    undos = 0;
+    money = 0;
+
+    entityManager->resetClients();
+    entityManager->resetStoves();
+    player->reset();
 }

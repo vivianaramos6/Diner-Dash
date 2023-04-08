@@ -25,6 +25,7 @@ class Player: public Entity{
         void keyReleased(int);
         void mousePressed(int, int, int);
         void setFacing(string);
+        void reset();
         BaseCounter* getActiveCounter();
         Burger* getBurger(){ return burger; }
        

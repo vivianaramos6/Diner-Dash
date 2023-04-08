@@ -2,7 +2,7 @@
 
 #include "Entity.h"
 #include "Client.h"
-
+#include "StoveCounter.h"
 class EntityManager {
 
 private:
@@ -14,7 +14,10 @@ public:
 	void render();
 	void addEntity(Entity *e);
 	void addClient(Client *c);
+	void removeClients(bool onlyLeavingClients = false);
 	void removeLeavingClients();
+	void resetClients();
+	void resetStoves();
 	std::vector<Entity*> entities;
 
 	// Getters and setters

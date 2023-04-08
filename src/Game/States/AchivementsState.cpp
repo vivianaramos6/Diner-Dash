@@ -17,17 +17,17 @@ AchivementsState::AchivementsState(GameData *gameData) : State(gameData), header
 	[](Achivement *achivement, Stats &stats){
 		if(stats.won) achivement->addToProgress(1);
 	}));
-	achivements.push_back(Achivement("No Room for Error", acImg2, "Win a game with no undos\nnor wasted burgers.", 1, 
+	achivements.push_back(Achivement("All-Star Chef", acImg4, "Serve 30 burgers.", 30, 
 	[](Achivement *achivement, Stats &stats){
-		if(stats.won && stats.undos == 0 && stats.burgersWasted == 0) achivement->addToProgress(1);
+		achivement->addToProgress(stats.burgersServed);
 	}));
 	achivements.push_back(Achivement("Full-Time Worker", acImg3, "Play the game for 8 minutes.", 480000, 
 	[](Achivement *achivement, Stats &stats){
 		achivement->addToProgress(stats.getElapsedTimeMillisecs());
 	}, 60000));
-	achivements.push_back(Achivement("All-Star Chef", acImg4, "Serve 30 burgers.", 30, 
+	achivements.push_back(Achivement("No Room for Error", acImg2, "Win a game with no undos, no \nwasted burgers, and no \nclients that left.", 1, 
 	[](Achivement *achivement, Stats &stats){
-		achivement->addToProgress(stats.burgersServed);
+		if(stats.won && stats.undos == 0 && stats.burgersWasted == 0 && stats.clientsThatLeft == 0) achivement->addToProgress(1);
 	}));
 }
 

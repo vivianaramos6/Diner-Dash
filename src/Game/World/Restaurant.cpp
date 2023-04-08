@@ -52,9 +52,10 @@ void Restaurant::initItems(){
 void Restaurant::initCounters(){
     int counterWidth = 96;
     int yOffset = 500;
-    ofImage counterSheet, plateCounterImg, cheeseCounterImg, stoveCounterImg, lettuceCounterImg, emptyCounterImg, tomatoCounterImg, breadCounterImg;
+    ofImage counterSheet, plateCounterImg, cheeseCounterImg, stoveCounterImg, stoveCounterOnImg, lettuceCounterImg, emptyCounterImg, tomatoCounterImg, breadCounterImg;
     counterSheet.load("images/kitchen_cabinets_by_ayene_chan.png");
     stoveCounterImg.cropFrom(counterSheet, 224,12,32,43);//stoveTop
+    stoveCounterOnImg.cropFrom(counterSheet, 224,140,32,43);//stoveTop turned on
     lettuceCounterImg.cropFrom(counterSheet,96,76,32,43);//Vegetables
     emptyCounterImg.cropFrom(counterSheet,0,245,30,43);//Empty
     tomatoCounterImg.cropFrom(counterSheet,96,200,32,48);//fruit basket
@@ -62,8 +63,8 @@ void Restaurant::initCounters(){
     plateCounterImg.cropFrom(counterSheet,0,133,32,50);//plates
     breadCounterImg.cropFrom(counterSheet,0,63,34,56);//buns
     entityManager->addEntity(new BaseCounter(0,yOffset-16, counterWidth, 117, nullptr, plateCounterImg));
-    entityManager->addEntity( new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg));
-    entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg));
+    entityManager->addEntity(new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg));
+    entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg, stoveCounterOnImg));
     entityManager->addEntity(new BaseCounter(counterWidth*3, yOffset, counterWidth, 102, lettuce, lettuceCounterImg));
     entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg));
     entityManager->addEntity(new BaseCounter(counterWidth*5, yOffset -10, counterWidth, 113, tomato, tomatoCounterImg));

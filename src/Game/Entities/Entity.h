@@ -22,4 +22,5 @@ class Entity {
     int getHeight() { return height; }
     void setY(int y) { this->y = y; }
     void setX(int x) { this->x = x; }
+    void setSprite(ofImage sprite) { this->sprite = sprite; }
 };

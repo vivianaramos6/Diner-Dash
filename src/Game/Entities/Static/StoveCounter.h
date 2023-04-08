@@ -13,9 +13,11 @@ class StoveCounter: public BaseCounter {
         int progressBarH = 10;
         ofColor completeColor = ofColor(21, 136, 255);
         ofColor progressingColor = ofColor(255);
+        ofImage activeSprite;
+        ofImage sprite;
 
     public:
-        StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite);
+        StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite);
         Item* getItem();
         void interact();
         void render();

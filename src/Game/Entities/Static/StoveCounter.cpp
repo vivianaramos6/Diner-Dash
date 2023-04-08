@@ -1,11 +1,8 @@
 #include "StoveCounter.h"
 
-StoveCounter::StoveCounter(int x, int y, int width, int height, 
-Item* rawItem, Item* cookedItem, ofImage sprite) 
-: BaseCounter(x, y, width, height, rawItem, sprite) {
-    this->cookedItem = cookedItem;
-    this->rawItem = rawItem;
-}
+StoveCounter::StoveCounter(int x, int y, int width, int height, Item* rawItem, Item* cookedItem, ofImage sprite, ofImage activeSprite) 
+: BaseCounter(x, y, width, height, rawItem, sprite), 
+cookedItem(cookedItem), rawItem(rawItem), sprite(sprite), activeSprite(activeSprite) {}
 
 Item* StoveCounter::getItem() {
     // When isCooked == false, it returns a nullptr, causing the player to call the interact method
@@ -19,6 +16,7 @@ Item* StoveCounter::getItem() {
 // Called when there is no cooked burger and the player clicks e
 void StoveCounter::interact() {
     isCooking = true;
+    setSprite(activeSprite);
 }
 
 void StoveCounter::tick() {
@@ -27,8 +25,9 @@ void StoveCounter::tick() {
     if(isCooking && ticks % ticksToCook == 0)
         cookingProgress++;
 
-    if(cookingProgress == 100) {
+    if(isCooking && cookingProgress == 100) {
         setItem(cookedItem);
+        setSprite(sprite);
         isCooking = false;
         isCooked = true;
     }
@@ -51,6 +50,7 @@ void StoveCounter::render() {
 void StoveCounter::reset() {
     cookingProgress = 0;
     setItem(rawItem);
+    setSprite(sprite);
     isCooking = false;
     isCooked = false;
 }

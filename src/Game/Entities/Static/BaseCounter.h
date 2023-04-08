@@ -17,4 +17,5 @@ class BaseCounter: public Entity {
         void setItem(Item* item);
         virtual void interact();
         void showItem();
+        void setSprite(ofImage sprite);
 };

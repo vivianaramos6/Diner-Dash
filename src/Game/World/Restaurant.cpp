@@ -76,7 +76,7 @@ void Restaurant::initCounters(){
     entityManager->addEntity(new BaseCounter(counterWidth,yOffset-7, counterWidth,108, cheese, cheeseCounterImg, &pickIngredientSound));
     entityManager->addEntity(new StoveCounter(counterWidth*2,yOffset, counterWidth, 102, rawBurger, burger, stoveCounterImg, stoveCounterOnImg, &pickIngredientSound, &stoveOnSound));
     entityManager->addEntity(new BaseCounter(counterWidth*3, yOffset, counterWidth, 102, lettuce, lettuceCounterImg, &pickIngredientSound));
-    entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg, &pickIngredientSound));
+    entityManager->addEntity(new BaseCounter(counterWidth*4,yOffset, counterWidth, 102, nullptr, emptyCounterImg, nullptr));
     entityManager->addEntity(new BaseCounter(counterWidth*5, yOffset -10, counterWidth, 113, tomato, tomatoCounterImg, &pickIngredientSound));
     entityManager->addEntity(new BaseCounter(counterWidth*6, yOffset-32, counterWidth, 133, botBread, breadCounterImg, &pickIngredientSound));
     entityManager->addEntity(new BaseCounter(counterWidth*7, yOffset-32, counterWidth, 133, topBread, breadCounterImg, &pickIngredientSound));
@@ -103,7 +103,7 @@ void Restaurant::initClients(){
 }
 void Restaurant::tick() {
     ticks++;
-    if(ticks % 300 == 0){
+    if(ticks % 275 == 0){
         generateClient();
     }
     player->tick();

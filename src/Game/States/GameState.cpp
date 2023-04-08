@@ -53,7 +53,8 @@ void GameState::keyPressed(int key){
 	restaurant->keyPressed(key);
 }
 
-bool GameState::mousePressed(int x, int y, int button){
+bool GameState::mousePressed(int x, int y, int button) {
+	return false;
 }
 
 void GameState::keyReleased(int key){

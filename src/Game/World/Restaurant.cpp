@@ -20,7 +20,7 @@ Restaurant::Restaurant() {
    
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
-    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money);    
+    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money, &undos, &ingredientsUsed);    
     initItems();
     initCounters();
     initClients();
@@ -151,7 +151,12 @@ void Restaurant::render() {
 void Restaurant::serveClient(){
     if(entityManager->firstClient!= nullptr){
         // Serve method returns the amount of money the bruger costs. returns 0 if no burger was served
-        money += entityManager->firstClient->serve(player->getBurger());
+        int moneyFromBurger = entityManager->firstClient->serve(player->getBurger());
+        money += moneyFromBurger;
+
+        // When money > 0, it means that the burger was served. otherwise it was thrown away
+        if(moneyFromBurger > 0)  burgersServed++;
+        else burgersWasted++;
     }
 }
 void Restaurant::keyPressed(int key) {

@@ -7,14 +7,16 @@ class Player: public Entity{
 
     private:
         int speed = 5;
+        int *ingredientsUsed_p;
         int *money_p;
+        int *undos_p;
         string facing = "right";
         Animation *chefAnim;
         Burger *burger;
         EntityManager* entityManager;
     
     public:
-        Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p);
+        Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p);
         void tick();
         void render();
         void keyPressed(int);

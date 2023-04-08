@@ -1,10 +1,13 @@
 #pragma once
-
 #include "ofMain.h"
+#include "GameData.h"
 
 class State {
+	protected:
+		GameData *gameData;
+
 	public:
-		State() {}
+		State(GameData * gameData) : gameData(gameData) {}
 		virtual void reset() = 0;
 		virtual void tick() = 0;
 		virtual void render() = 0;

@@ -2,20 +2,27 @@
 
 #include "ofMain.h"
 #include "MenuState.h"
+#include "StatsState.h"
+#include "AchivementsState.h"
 #include "GameState.h"
 #include "WinState.h"
 #include "LooseState.h"
+#include "GameData.h"
 
 class ofApp : public ofBaseApp{
 
 private:
 	State *currentState;
 	MenuState *menuState;
+	StatsState *statsState;
+	AchivementsState *achivementsState;
 	GameState *gameState;
 	WinState *winState;
 	LooseState *looseState;
 	
 	ofSoundPlayer sound;
+
+	GameData *gameData;
 
 
 public:

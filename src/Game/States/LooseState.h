@@ -1,15 +1,13 @@
 #pragma once
 #include "State.h"
 #include "Button.h"
-
-
 class LooseState : public State {
     private:
 		Button *playAgainBtn;
 		Button *goToMenuBtn;
 
     public: 
-        LooseState();
+        LooseState(GameData *gameData);
 		void tick();
 		void render();
 		void keyPressed(int key);

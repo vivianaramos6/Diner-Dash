@@ -2,11 +2,16 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	ofSetWindowTitle("Java Game Box");
+	// Game data and achivements
+	gameData = new GameData();
+
 	//States
-	menuState = new MenuState();
-	gameState = new GameState();
-	winState = new WinState();
-	looseState = new LooseState();
+	menuState = new MenuState(gameData);
+	statsState = new StatsState(gameData);
+	achivementsState = new AchivementsState(gameData);
+	gameState = new GameState(gameData);
+	winState = new WinState(gameData);
+	looseState = new LooseState(gameData);
 	// Initial State
 	currentState = menuState;
 
@@ -14,7 +19,6 @@ void ofApp::setup(){
 	sound.load("galactic.mp3");
 	sound.setLoop(true);
 	sound.play();
-
 }
 
 //--------------------------------------------------------------
@@ -24,8 +28,13 @@ void ofApp::update(){
 		if(currentState->hasFinished()){
 			if(currentState->getNextState() == "Menu"){
 				currentState = menuState;
+			}else if(currentState->getNextState() == "Stats"){
+				currentState = statsState;
+			}else if(currentState->getNextState() == "Achivements"){
+				currentState = achivementsState;
 			}else if(currentState->getNextState() == "Game"){
 				currentState = gameState;
+				gameState->startTimer();
 			}else if(currentState->getNextState() == "Loose"){
 				currentState = looseState;
 			}else if(currentState->getNextState() == "Win"){

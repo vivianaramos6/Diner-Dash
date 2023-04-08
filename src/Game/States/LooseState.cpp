@@ -1,6 +1,6 @@
 #include "LooseState.h"
 
-LooseState::LooseState() {
+LooseState::LooseState(GameData *gameData) : State(gameData) {
     int centerX = ofGetViewportWidth() / 2;
     int btnW = 150;
     int btnH = 40;
@@ -30,6 +30,10 @@ void LooseState::render() {
 
 	playAgainBtn->render();
 	goToMenuBtn->render();
+
+    // Showing stats
+    Stats* stats_p = gameData->getLastStats();
+    if(stats_p != nullptr) stats_p->draw();
 }
 
 void LooseState::keyPressed(int key) {

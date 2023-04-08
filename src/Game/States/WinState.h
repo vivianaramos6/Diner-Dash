@@ -1,10 +1,11 @@
 #pragma once
 #include "State.h"
 #include "Button.h"
-
+#include"GameFont.h"
 
 class WinState : public State {
     private:
+		GameFont gameFont36px = GameFont(36);
 		Button *playAgainBtn;
 		Button *goToMenuBtn;
 

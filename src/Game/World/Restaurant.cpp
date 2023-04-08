@@ -139,8 +139,8 @@ void Restaurant::render() {
     chairsandtable.draw((ofGetWidth()/2)+30, 330, 300,150);
     chairsandtable.draw((ofGetWidth()/2)+30, 200, 300,150);
     BlueArcade.draw(ofGetWidth()-315,0,200,200);
-     RedArcade.draw(ofGetWidth()-430,5,170,195);
-     pottedplant.draw(ofGetWidth()-530,0,120,200);
+    RedArcade.draw(ofGetWidth()-430,5,170,195);
+    pottedplant.draw(ofGetWidth()-530,0,120,200);
     
     //ofSetColor(0, 0, 0); 
 	//ofDrawRectangle(70, 5, 175, 30);

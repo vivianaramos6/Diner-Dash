@@ -22,12 +22,12 @@ void WinState::tick() {
 }
 
 void WinState::render() {
-	ofSetBackgroundColor(59, 131, 247);
+	ofSetBackgroundColor(18, 25, 89);
 	playAgainBtn->render();
 	goToMenuBtn->render();
 
-    ofSetColor(0);
-    ofDrawBitmapString("YOU WON!", ofGetViewportWidth() / 2 - 44, ofGetViewportHeight() / 3);
+    ofSetColor(255);
+    gameFont36px.draw("YOU WON!", ofGetViewportWidth() / 2 - 180, ofGetViewportHeight() / 3);
     ofSetColor(255);
 
     // Showing stats

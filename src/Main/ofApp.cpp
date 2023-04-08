@@ -11,7 +11,7 @@ void ofApp::setup(){
 	currentState = menuState;
 
 	// Sound
-	sound.load("music.wav");
+	sound.load("galactic.mp3");
 	sound.setLoop(true);
 	sound.play();
 

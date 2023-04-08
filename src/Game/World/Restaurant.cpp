@@ -8,10 +8,12 @@ Player *Restaurant::getPlayer() { return player; }
 void Restaurant::setPlayer(Player *player) { this->player = player; }
 
 Restaurant::Restaurant() {
-    floor.load("images/floor.jpg");
+    floor.load("images/arcade_floor3.png");
+    
     entityManager = new EntityManager();
     //loading decoration
-    chairsandtable.load("images/ChairsTable.png");
+    moneysign.load("images/moneysign.png");
+    chairsandtable.load("images/dinertables.png");
     BlueArcade.load("images/blue_arcade.png");
     RedArcade.load("images/red_arcade.png");
     pottedplant.load("images/pottedplant.png");
@@ -121,20 +123,23 @@ void Restaurant::generateClient(){
 }
 void Restaurant::render() {
    
-    floor.draw(0,0, ofGetWidth(), ofGetHeight());
+    floor.draw(0,0,ofGetWidth(),ofGetHeight());
     //drawing decorations
-    chairsandtable.draw(ofGetWidth()/2, 200, 190,190);
-    chairsandtable.draw(ofGetWidth()/4, 200, 190,190);
+    chairsandtable.draw(ofGetWidth()/6, 330, 300,150);
+    chairsandtable.draw(ofGetWidth()/6, 200, 300,150);
+    chairsandtable.draw((ofGetWidth()/2)+30, 330, 300,150);
+    chairsandtable.draw((ofGetWidth()/2)+30, 200, 300,150);
     BlueArcade.draw(ofGetWidth()-315,0,200,200);
      RedArcade.draw(ofGetWidth()-430,5,170,195);
      pottedplant.draw(ofGetWidth()-530,0,120,200);
     
-    ofSetColor(0, 0, 0); 
-	ofDrawRectangle(70, 5, 175, 30);
+    //ofSetColor(0, 0, 0); 
+	//ofDrawRectangle(70, 5, 175, 30);
+    moneysign.draw(120,5,90,70);
 
-    ofSetColor(144, 238, 144);
+    ofSetColor(255, 0, 127);
 
-    gameFont10px.draw("Money: " + to_string(money),80,30);
+    gameFont10px.draw( to_string(money),160,50);
     
     ofSetColor(256, 256, 256);
      

@@ -13,6 +13,7 @@ Restaurant::Restaurant() {
     entityManager = new EntityManager();
     //loading decoration
     moneysign.load("images/moneysign.png");
+    leftsign.load("images/leftsign.png");
     chairsandtable.load("images/dinertables.png");
     BlueArcade.load("images/blue_arcade.png");
     RedArcade.load("images/red_arcade.png");
@@ -140,13 +141,13 @@ void Restaurant::render() {
     RedArcade.draw(ofGetWidth()-430,5,170,195);
     pottedplant.draw(ofGetWidth()-530,0,120,200);
     
-    //ofSetColor(0, 0, 0); 
-	//ofDrawRectangle(70, 5, 175, 30);
     moneysign.draw(120,5,90,70);
+    leftsign.draw(670, 5, 150, 70);
 
     ofSetColor(255, 0, 127);
 
-    gameFont10px.draw( to_string(money),160,50);
+    gameFont10px.draw(to_string(money),162,50);
+    gameFont10px.draw("10/" + to_string(getClientsThatLeft()),740,50);
     
     ofSetColor(256, 256, 256);
      

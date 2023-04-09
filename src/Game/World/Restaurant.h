@@ -46,6 +46,7 @@ class Restaurant {
         ofImage RedArcade;
         ofImage pottedplant;
         ofImage moneysign;
+        ofImage leftsign;
         void initItems();
         void initCounters();
         void initClients();
@@ -56,10 +57,6 @@ class Restaurant {
         void keyPressed(int key);
         void keyReleased(int key);
         void reset();
-        
-
-
-
 
         // Getters and setters
         int getClientsThatLeft() { return entityManager->getClientsThatLeft(); }

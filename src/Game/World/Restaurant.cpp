@@ -24,10 +24,11 @@ Restaurant::Restaurant() {
     pickIngredientSound.load("sounds/pick-ingredient.mp3");
     serveClientSound.load("sounds/serve-client.mp3");
     clientLeftSound.load("sounds/client-left.mp3");
+    incorrectSound.load("sounds/incorrect-sound.wav");
    
     ofImage chefPlayerImage;
     chefPlayerImage.load("images/chef.png");
-    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money, &undos, &ingredientsUsed);    
+    this->player = new Player(0, 600, 64, 64, chefPlayerImage, entityManager, &money, &undos, &ingredientsUsed, &incorrectSound);    
     initItems();
     initCounters();
     initClients();
@@ -167,7 +168,10 @@ void Restaurant::serveClient(){
             burgersServed++;
             serveClientSound.play();
         }
-        else burgersWasted++;
+        else {
+            incorrectSound.play();
+            burgersWasted++;
+        }
     }
 }
 void Restaurant::keyPressed(int key) {

@@ -10,6 +10,7 @@ class Player: public Entity{
         int *ingredientsUsed_p;
         int *money_p;
         int *undos_p;
+        ofSoundPlayer *incorrectSound_p;
         bool movingLeft = false;
         bool movingRight = false;
         string facing = "right";
@@ -18,7 +19,7 @@ class Player: public Entity{
         EntityManager* entityManager;
     
     public:
-        Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p);
+        Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p, ofSoundPlayer *incorrectSound_p);
         void tick();
         void render();
         void keyPressed(int);

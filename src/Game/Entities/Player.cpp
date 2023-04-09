@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p) : Entity(x, y, width, height, sprite){
+Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManager* em, int *money_p, int *undos_p, int *ingredientsUsed_p, ofSoundPlayer *incorrectSound_p) : Entity(x, y, width, height, sprite){
 
     vector<ofImage> chefAnimframes;
     ofImage temp;
@@ -18,6 +18,7 @@ Player::Player(int x, int y, int width, int height, ofImage sprite, EntityManage
     this->ingredientsUsed_p = ingredientsUsed_p;
     this->money_p = money_p;
     this->undos_p = undos_p;
+    this->incorrectSound_p = incorrectSound_p;
     
 }
 void Player::tick(){
@@ -49,6 +50,12 @@ void Player::keyPressed(int key){
     if(key == 'e'){
         BaseCounter* ac = getActiveCounter();
         if(ac != nullptr){
+            // not adding any ingredient if there are too many and player incorrectSound
+            if(burger->getIngredients().size() > 7) {
+                incorrectSound_p->play();
+                return;
+            }
+
             Item* item = ac->getItem();
 
             // calling interact method on the counter if it returns null item pointer

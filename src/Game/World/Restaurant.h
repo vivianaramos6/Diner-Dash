@@ -26,6 +26,7 @@ class Restaurant {
         ofSoundPlayer pickIngredientSound;
         ofSoundPlayer serveClientSound;
         ofSoundPlayer clientLeftSound;
+        ofSoundPlayer incorrectSound;
         GameFont gameFont10px;
 
     public:

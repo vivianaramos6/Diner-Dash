@@ -135,7 +135,7 @@ void Restaurant::generateClient(){
 
     b->addIngredient(topBread);
 
-    if(clientsGenerated % 10 == 0)
+    if(clientsGenerated % 10 == 0 && clientsGenerated > 0)
         entityManager->addClient(new Inspector(0, 50, 64, 72,people[8], b, &money, &clientLeftSound));
     else
         entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b, &clientLeftSound));

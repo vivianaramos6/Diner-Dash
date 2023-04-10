@@ -6,6 +6,6 @@ Inspector::Inspector(int x, int y, int width, int height, ofImage sprite, Burger
 void Inspector::tick(){
     Client::tick();
 
-    if(isLeaving)
+    if(isLeaving && patience <= 0)
         *money_p /= (*money_p < 0? 0.5 : 2);
 }

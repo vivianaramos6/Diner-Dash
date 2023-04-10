@@ -4,6 +4,7 @@
 
 #include "Restaurant.h"
 
+
 Player *Restaurant::getPlayer() { return player; }
 void Restaurant::setPlayer(Player *player) { this->player = player; }
 
@@ -102,11 +103,15 @@ void Restaurant::initClients(){
     people.push_back(temp);
     temp.load("images/People/Weather_Reporter2Female.png");
     people.push_back(temp);
+    temp.load("images/People/inspector.png");
+    people.push_back(temp);
 }
 void Restaurant::tick() {
     ticks++;
     if(ticks % 275 == 0){
         generateClient();
+        clientsGenerated++;
+
     }
     player->tick();
     entityManager->tick();
@@ -128,7 +133,10 @@ void Restaurant::generateClient(){
 
     b->addIngredient(topBread);
 
-    entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b, &clientLeftSound));
+    if(clientsGenerated % 10 == 0)
+        entityManager->addClient(new Inspector(0, 50, 64, 72,people[8], b, &money, &clientLeftSound));
+    else
+        entityManager->addClient(new Client(0, 50, 64, 72,people[ofRandom(8)], b, &clientLeftSound));
 }
 void Restaurant::render() {
    
@@ -192,6 +200,7 @@ void Restaurant::reset() {
     ticks = 0;
     undos = 0;
     money = 0;
+    clientsGenerated=0;
 
     entityManager->resetClients();
     entityManager->resetStoves();

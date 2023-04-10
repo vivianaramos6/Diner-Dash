@@ -21,7 +21,7 @@ class Restaurant {
         int burgersWasted = 0;
         int undos = 0;
         int money = 0;
-
+        int clientsGenerated = 0;
         ofSoundPlayer stoveOnSound;
         ofSoundPlayer pickIngredientSound;
         ofSoundPlayer serveClientSound;

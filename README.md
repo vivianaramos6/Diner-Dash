@@ -15,11 +15,13 @@ This project has a lot of classes and OOP concepts in it, so make sure to study 
 Please fill out the information below for each member of the team:
 
 # features added Phase 1:
-- arcade machines (drawn by Viviana)
+- arcade machines
 - potted plant 
-- tables with chairs (drawn by Viviana)
+- tables with chairs
 - burger background in menustate
 - redesigned floor 
+- gameover and sad chef
+
 
 ### Viviana Ramos : viviana.ramos6@upr.edu
 

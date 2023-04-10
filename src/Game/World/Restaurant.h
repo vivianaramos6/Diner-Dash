@@ -45,7 +45,10 @@ class Restaurant {
         ofImage chairsandtable;
         ofImage BlueArcade;
         ofImage RedArcade;
-        ofImage pottedplant;
+        ofImage pinkArcade;
+        ofImage greenArcade;
+        ofImage yellowArcade;
+        ofImage bluepottedplant;
         ofImage moneysign;
         ofImage leftsign;
         void initItems();

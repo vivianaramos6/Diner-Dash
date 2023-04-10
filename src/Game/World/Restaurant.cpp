@@ -18,7 +18,12 @@ Restaurant::Restaurant() {
     chairsandtable.load("images/dinertables.png");
     BlueArcade.load("images/blue_arcade.png");
     RedArcade.load("images/red_arcade.png");
-    pottedplant.load("images/pottedplant.png");
+    greenArcade.load("images/greenarcade.png");
+    pinkArcade.load("images/pinkarcade.png");
+    yellowArcade.load("images/yellowarcade.png");
+
+    bluepottedplant.load("images/bluepottedplant.png");
+
 
     // Loading sounds
     stoveOnSound.load("sounds/stove-on.mp3");
@@ -148,9 +153,11 @@ void Restaurant::render() {
     chairsandtable.draw(ofGetWidth()/6, 200, 300,150);
     chairsandtable.draw((ofGetWidth()/2)+30, 330, 300,150);
     chairsandtable.draw((ofGetWidth()/2)+30, 200, 300,150);
-    BlueArcade.draw(ofGetWidth()-315,0,200,200);
-    RedArcade.draw(ofGetWidth()-430,5,170,195);
-    pottedplant.draw(ofGetWidth()-530,0,120,200);
+    BlueArcade.draw(ofGetWidth()-315,0,150,150);
+    RedArcade.draw(ofGetWidth()-400,5,120,145);
+    greenArcade.draw(ofGetWidth()-490,2,100,149);
+    pinkArcade.draw(ofGetWidth()-585,2,100,149);
+    bluepottedplant.draw(ofGetWidth()-100,ofGetHeight()-550,100,170);
     
     moneysign.draw(120,5,90,70);
     leftsign.draw(670, 5, 150, 70);

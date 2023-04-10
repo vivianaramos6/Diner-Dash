@@ -26,7 +26,7 @@ void Client::render(){
 void Client::tick(){
     patience--;
     burger->setY(y);
-    if(patience == 0){
+    if(patience <= 0){
         if(leavingSound != nullptr) leavingSound->play();
         isLeaving = true;
     }

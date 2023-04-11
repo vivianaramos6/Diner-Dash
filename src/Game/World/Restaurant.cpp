@@ -156,7 +156,7 @@ void Restaurant::render() {
     ofSetColor(255, 0, 127);
 
     gameFont10px.draw(to_string(money),162,50);
-    gameFont10px.draw("10/" + to_string(getClientsThatLeft()),740,50);
+    gameFont10px.draw(to_string(getClientsThatLeft()) + "/10",740,50);
     
     ofSetColor(256, 256, 256);
      

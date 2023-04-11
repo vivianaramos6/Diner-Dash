@@ -40,8 +40,8 @@ class Achivement {
 
         // Getters
         string getProgression() {
-            return to_string(goal / displayProgressDivisor) + "/" + 
-            to_string(progress / displayProgressDivisor);
+            return to_string(progress / displayProgressDivisor) + "/" + 
+            to_string(goal / displayProgressDivisor);
         }
         string getName() { return name; }
         string getDesc() { return desc; }

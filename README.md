@@ -11,10 +11,7 @@ After compiling and running the project for the first time, you should be able t
 # Classes
 This project has a lot of classes and OOP concepts in it, so make sure to study the code base well and familiarize yourself with OOP.
 
-# Student Info
-Please fill out the information below for each member of the team:
-
-# features added Phase 1:
+# Decor features added Phase 1:
 - arcade machines
 - potted plant 
 - tables with chairs
@@ -22,6 +19,23 @@ Please fill out the information below for each member of the team:
 - redesigned floor 
 - gameover and sad chef
 
+# Other extra features
+- custom font (Press Strart 2P)
+- sound effects for buttons
+- in-game sound effect
+- end-game stats
+- winning sound effect
+- loosing sound effect
+- achievements page
+- stats page (with pagination to show more than 4 past games)
+- raw patty texture
+- cooked patty texture
+- improved button class
+- improved money indicator
+- clients that left indicator
+
+# Student Info
+Please fill out the information below for each member of the team:
 
 ### Viviana Ramos : viviana.ramos6@upr.edu
 

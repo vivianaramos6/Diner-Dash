@@ -1,6 +1,6 @@
 #include "AchivementsState.h"
 
-AchivementsState::AchivementsState(GameData *gameData) : State(gameData), header("Achivements") {
+AchivementsState::AchivementsState(GameData *gameData) : State(gameData), header("Achievements") {
 	menuButton = new Button(15, 15, 100, 50, "Menu", 12, 255, ofColor::grey);
 	
 	header.setButton(menuButton);

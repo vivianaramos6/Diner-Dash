@@ -13,7 +13,7 @@ MenuState::MenuState(GameData *gameData) : State(gameData), title(GameFont(title
 
 
 	// Achivements button
-	string achivementsTxt = "Achivements";
+	string achivementsTxt = "Achievements";
 	achivementsButton = new Button(ofGetWidth()/2 - 150, 675 , 300, 80, achivementsTxt, 16, 255, ofColor(145));
 
 }

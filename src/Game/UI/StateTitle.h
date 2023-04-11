@@ -8,7 +8,7 @@ class StateTitle {
     
     public:
         StateTitle(string titleTxt) 
-        : title(GameFont(38)), titleTxt(titleTxt) {}
+        : title(GameFont(36)), titleTxt(titleTxt) {}
         void render();
 
         void setButton(Button *button) { this->button = button; }

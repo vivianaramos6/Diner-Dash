@@ -11,7 +11,7 @@ void StateTitle::render() {
     ofSetColor(255);
 
     // text
-    title.draw(titleTxt, ofGetViewportWidth() / 2 - titleTxt.length() * 38 * 0.65, 65);
+    title.draw(titleTxt, ofGetViewportWidth() / 2 - titleTxt.length() * 36 * 0.65, 65);
 
     if(button != nullptr) button->render();
 }
